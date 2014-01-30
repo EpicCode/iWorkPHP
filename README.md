@@ -4,8 +4,8 @@ iWorkPHP Standard Edition
 Welcome to the iWorkPHP Standard Edition - a fully-functional iWorkPHP
 application that you can use as the skeleton for your new applications.
 
-iWorkPHP is a lightweight framework for rapid php projects in mind if 
-you have a really big project we recommend using [Symfony][1] instead.
+iWorkPHP is a lightweight framework for rapid php projects, if you have 
+a really big project we recommend using [Symfony][1] instead.
 
 1) Installing the Standard Edition
 ----------------------------------
