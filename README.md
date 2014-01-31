@@ -27,7 +27,7 @@ Then, use the `create-project` command to generate a new iWorkPHP application:
 
     composer create-project -s dev iworkphp/framework-standard-edition path/to/install
 
-Composer will install Symfony and all its dependencies under the
+Composer will install iWorkPHP and all its dependencies under the
 `path/to/install` directory.
 
 [1]:  http://symfony.com/
