@@ -5,6 +5,7 @@
     "description": "The \"iWorkPHP Standard Edition\" distribution",
 	"autoload": {
 		"psr-0": {
+			"iWorkPHP" : "frame/",
 			"" : "src/"
 		}
 	},
