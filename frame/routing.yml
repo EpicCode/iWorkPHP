@@ -1,0 +1,8 @@
+## Routing Config
+---
+index_page:
+    path: /
+    class: { Main:main }
+hello_page:
+    pattern: "@/hello/(\w+)/@"
+    class: { Main:hello }

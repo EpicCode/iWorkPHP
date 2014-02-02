@@ -11,12 +11,5 @@
  *
  * @author Hax0r
  */
-class Loader
-{
-
-    public function __construct()
-    {
-        require_once __DIR__ . '/../vendor/autoload.php';
-    }
-
-}
+$composer = require_once __DIR__ . '/../vendor/autoload.php';
+return new \iWorkPHP\Loader($composer);

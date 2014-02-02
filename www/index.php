@@ -1,6 +1,5 @@
 <?php
 
-require_once __DIR__ . '/../frame/Loader.php';
-
-
-$GeoIP = New GeoIP();
+$loader = require_once __DIR__ . '/../frame/Loader.php';
+$loader->handleRequest();
+$loader->send();
