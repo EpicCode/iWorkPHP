@@ -20,20 +20,15 @@ class Router extends Kernel
 
     private $config;
 
-    private function parseRouterConfig()
-    {
-        $yaml = new Parser();
-        $this->config = $yaml->parse(file_get_contents($this->properties->getParameter('frameDir') . 'routing.yml'));
-    }
-
     public function loadRules()
     {
+        // Utils library
         $Utils = new Utils();
         $this->parseRouterConfig();
+        // RouterRule colletion
         $this->rules = new RouterRules();
 
-
-
+        // Parse rules from .yml file
         foreach ($this->config as $key => $value)
             $this->rules->setRule($key, $this->utils->iifIssetArray($value, 'path', null), $this->utils->iifIssetArray($value, 'pattern', null), key($value['class']), current($value['class']));
     }
@@ -64,9 +59,27 @@ class Router extends Kernel
         }
     }
 
+    public function hasOnError()
+    {
+        return $this->rules->hasRule('onError');
+    }
+
+    public function getOnError()
+    {
+        return $this->rules->getRule('onError');
+    }
+
     public function getConfig()
     {
         return $this->config;
+    }
+
+    private function parseRouterConfig()
+    {
+        // New Symfony YAML Parser
+        $yaml = new Parser();
+        // Load raw rules from .yml file
+        $this->config = $yaml->parse(file_get_contents($this->properties->getParameter('frameDir') . 'routing.yml'));
     }
 
 }

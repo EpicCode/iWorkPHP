@@ -28,34 +28,14 @@ class RouterRules
         return $this->rules;
     }
 
-    public function getRulePath($name)
+    public function hasRule($name)
     {
-        return $this->rules->$name->getPath();
+        return property_exists($this->rules, $name);
     }
 
-    public function getRulePattern($name)
+    public function getRule($name)
     {
-        return $this->rules->$name->getPattern();
-    }
-
-    public function getRuleClass($name)
-    {
-        return $this->rules->$name->getClass();
-    }
-
-    public function getRuleMethod($name)
-    {
-        return $this->rules->$name->getMethod();
-    }
-
-    public function hasRulePath($name)
-    {
-        return $this->rules->$name->hasPath();
-    }
-
-    public function hasRulePattern($name)
-    {
-        return $this->rules->$name->hasPattern();
+        return $this->rules->$name;
     }
 
     public function setRule($name, $path, $pattern, $className, $classMethod)

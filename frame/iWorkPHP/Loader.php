@@ -19,6 +19,11 @@ use Symfony\Component\HttpFoundation\Response;
 class Loader extends Kernel
 {
 
+    /**
+     * Define initial configuration for environment
+     * 
+     * @param ClassLoader $composer
+     */
     public function __construct($composer)
     {
         parent::__construct();
@@ -31,7 +36,7 @@ class Loader extends Kernel
     {
         // Parse the Request HTTP
         $this->request = Request::createFromGlobals();
-        // Set response object
+        // Set Twig service
         $this->twig = new Twig();
         // Set response object
         $this->response = new Response();
@@ -42,11 +47,17 @@ class Loader extends Kernel
         $rule = $this->router->matchRule();
         // Load current rule
         if ($rule instanceof RouterRule)
-            call_user_func_array(array(
-                $this->{'Source\\' . $rule->getClass()},
-                $rule->getMethod() . 'Action'
-                    ), $rule->getMatches()
-            );
+        {
+            $this->callRule($rule);
+        } else
+        {
+            // onError default page
+            if ($this->router->hasOnError())
+            {
+                $rule = $this->router->getOnError();
+                $this->callRule($rule);
+            }
+        }
     }
 
     public function send()
@@ -55,6 +66,15 @@ class Loader extends Kernel
             $this->response->setContent($this->twig->getHtml());
         $this->response->prepare($this->request);
         $this->response->send();
+    }
+
+    private function callRule(RouterRule $rule)
+    {
+        return call_user_func_array(array(
+            $this->{'Source\\' . $rule->getClass()},
+            $rule->getMethod() . 'Action'
+                ), $rule->getMatches()
+        );
     }
 
 }

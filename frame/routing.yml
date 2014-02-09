@@ -1,5 +1,9 @@
 ## Routing Config
 ---
+# Events Pages
+onError:
+    class: { Main:error }
+# Pages
 index_page:
     path: /
     class: { Main:main }

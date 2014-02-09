@@ -25,5 +25,10 @@ class Main extends Controller
     {
         $this->render('hello', array('name' => $name));
     }
+    
+    public function errorAction()
+    {
+        $this->render('404');
+    }
 
 }
