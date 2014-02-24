@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+
+use iWorkPHP\Doctrine;
+
+$composer = require_once __DIR__ . '/../vendor/autoload.php';
+$loader = new \iWorkPHP\Loader($composer);
+
+$Doctrine = new Doctrine();
+$helperSet = \Doctrine\ORM\Tools\Console\ConsoleRunner::createHelperSet($Doctrine->getEntityManager());
+\Doctrine\ORM\Tools\Console\ConsoleRunner::run($helperSet, array());
