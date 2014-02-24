@@ -78,7 +78,7 @@ class Kernel
      */
     public static function set($name, $service)
     {
-        if (!is_object($service) and !is_array($service))
+        if (is_string($service))
             return $GLOBALS[$name] = new $service();
         else
             return $GLOBALS[$name] = $service;

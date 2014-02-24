@@ -79,7 +79,7 @@ class Router extends Kernel
         // New Symfony YAML Parser
         $yaml = new Parser();
         // Load raw rules from .yml file
-        $this->config = $yaml->parse(file_get_contents($this->properties->getParameter('frameDir') . 'routing.yml'));
+        $this->config = $yaml->parse(file_get_contents($this->properties->getParameter('configDir') . 'routing.yml'));
     }
 
 }

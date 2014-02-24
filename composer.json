@@ -4,9 +4,11 @@
     "type": "project",
     "description": "The \"iWorkPHP Standard Edition\" distribution",
 	"autoload": {
-		"psr-0": {
-			"iWorkPHP" : "frame/",
-			"Source" : "./"
+		"psr-4": {
+			"iWorkPHP\\" : "frame/",
+			"Source\\" : "src/",
+			"Db\\Model\\" : "entity/model/",
+			"Db\\Repo\\" : "entity/repo/"
 		}
 	},
     "require": {
@@ -14,6 +16,7 @@
 		"ezyang/htmlpurifier": "~4",
 		"geoip2/geoip2": "0.5.*",
 		"symfony/yaml": "2.4.*",
-		"symfony/http-foundation": "2.4.*"
+		"symfony/http-foundation": "2.4.*",
+		 "doctrine/orm": "*"
     }
 }
