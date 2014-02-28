@@ -1,8 +1,8 @@
 iWorkPHP - Web Framework (BETA)
 =========================
 
-Welcome to the iWorkPHP Standard Edition - a fully-functional 
-lightweight framework for rapid php projects.
+Welcome to iWorkPHP a simple and powerful web framework, with the aim of facilitating the development, making it more intelligent, intuitive and fun. 
+With iWorkPHP, you no longer lose valuable time learning to use complex standards, so you can now just focus on your business.
 
 Installation
 -------------------------------
@@ -10,7 +10,7 @@ Installation
 When it comes to installing the iWorkPHP Standard Edition, you have the
 following options.
 
-### Use Composer (*recommended*)
+#### Use Composer (*recommended*)
 
 As iWorkPHP uses [Composer][1] to manage its dependencies, the recommended way
 to create a new project is to use it.
