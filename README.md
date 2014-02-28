@@ -1,10 +1,8 @@
-iWorkPHP - Web Framework
+iWorkPHP - Web Framework (BETA)
 =========================
 
 Welcome to the iWorkPHP Standard Edition - a fully-functional 
 lightweight framework for rapid php projects.
-
-**iWorkPHP is currently in beta phase.**
 
 Installation
 -------------------------------
