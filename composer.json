@@ -5,11 +5,11 @@
     "description": "The \"iWorkPHP Standard Edition\" distribution",
 	"autoload": {
 		"psr-4": {
-			"iWorkPHP\\" : "frame/",
-			"Controller\\" : "controllers/",
-			"Model\\" : "models/",
-			"Db\\Model\\" : "entity/model/",
-			"Db\\Repo\\" : "entity/repo/"
+			"iWorkPHP\\" : "manager/frame/",
+			"Controller\\" : "app/controllers/",
+			"Model\\" : "app/models/",
+			"Db\\Model\\" : "app/databases/defalut/models/",
+			"Db\\Repo\\" : "app/databases/defalut/repos/"
 		}
 	},
     "require": {
