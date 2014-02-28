@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace Source;
+namespace Controller;
 
 /**
  * Description of Controller

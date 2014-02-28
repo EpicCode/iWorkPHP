@@ -6,7 +6,8 @@
 	"autoload": {
 		"psr-4": {
 			"iWorkPHP\\" : "frame/",
-			"Source\\" : "src/",
+			"Controller\\" : "controller/",
+			"Model\\" : "model/",
 			"Db\\Model\\" : "entity/model/",
 			"Db\\Repo\\" : "entity/repo/"
 		}
