@@ -2,7 +2,6 @@ iWorkPHP - Web Framework (BETA)
 =========================
 
 Welcome to iWorkPHP a simple and powerful web framework, with the aim of facilitating the development, making it more intelligent, intuitive and fun. 
-
 With iWorkPHP, you no longer lose valuable time learning to use complex standards, so you can now just focus on your business.
 
 Installation
