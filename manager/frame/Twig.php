@@ -20,13 +20,13 @@ class Twig extends \Twig_Environment
 
     public function __construct()
     {
-        $loader = new \Twig_Loader_Filesystem(Kernel::get('properties')->getParameter('baseDir') . 'views');
+        $loader = new \Twig_Loader_Filesystem(Kernel::get('properties')->getParameter('appDir') . 'views');
 
         /* For developers */
         //if (Kernel::Get('Sys_Config')->debug)
         //{
         parent::__construct($loader, array(
-            'cache' => Kernel::get('properties')->getParameter('baseDir') . 'cache',
+            'cache' => Kernel::get('properties')->getParameter('appDir') . 'cache',
             'debug' => true
         ));
         parent::addExtension(new \Twig_Extension_Debug());

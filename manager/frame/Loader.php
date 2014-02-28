@@ -28,9 +28,10 @@ class Loader extends Kernel
     {
         parent::__construct();
         $this->composer = $composer;
-        $this->properties->setParameter('baseDir', dirname(__DIR__) . '/');
-        $this->properties->setParameter('configDir', $this->properties->getParameter('baseDir') . '/config/');
-        $this->properties->setParameter('frameDir', __DIR__ . '/');
+        $this->properties->setParameter('frameDir', dirname(__DIR__) . '/');
+        $this->properties->setParameter('baseDir', dirname(dirname(__DIR__)) . '/');
+        $this->properties->setParameter('appDir', $this->properties->getParameter('baseDir') . 'app/');
+        $this->properties->setParameter('configDir', $this->properties->getParameter('frameDir') . 'config/');
     }
 
     public function handleRequest()
@@ -72,7 +73,7 @@ class Loader extends Kernel
     private function callRule(RouterRule $rule)
     {
         return call_user_func_array(array(
-            $this->{'Source\\' . $rule->getClass()},
+            $this->{'Controller\\' . $rule->getClass()},
             $rule->getMethod() . 'Action'
                 ), $rule->getMatches()
         );

@@ -1,9 +1,8 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * BETA
+ * you should not even use it!
  */
 
 namespace iWorkPHP;
