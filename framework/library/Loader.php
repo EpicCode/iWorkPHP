@@ -1,41 +1,33 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 namespace iWorkPHP;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Description of Loader
+ * The loader of framework
  *
- * @author Hax0r
+ * @author EpicJhon
  */
-class Loader extends Kernel
-{
+class Loader extends Kernel {
 
     /**
      * Define initial configuration for environment
      * 
      * @param ClassLoader $composer
      */
-    public function __construct($composer)
-    {
+    public function __construct($composer) {
         parent::__construct();
         $this->composer = $composer;
         $this->properties->setParameter('frameDir', dirname(__DIR__) . '/');
         $this->properties->setParameter('baseDir', dirname(dirname(__DIR__)) . '/');
         $this->properties->setParameter('appDir', $this->properties->getParameter('baseDir') . 'app/');
         $this->properties->setParameter('configDir', $this->properties->getParameter('frameDir') . 'config/');
+        (new Config())->loadConfig();
     }
 
-    public function handleRequest()
-    {
+    public function handleRequest() {
         // Parse the Request HTTP
         $this->request = Request::createFromGlobals();
         // Set Twig service
@@ -48,30 +40,25 @@ class Loader extends Kernel
         // Match current rule
         $rule = $this->router->matchRule();
         // Load current rule
-        if ($rule instanceof RouterRule)
-        {
+        if ($rule instanceof RouterRule) {
             $this->callRule($rule);
-        } else
-        {
+        } else {
             // onError default page
-            if ($this->router->hasOnError())
-            {
+            if ($this->router->hasOnError()) {
                 $rule = $this->router->getOnError();
                 $this->callRule($rule);
             }
         }
     }
 
-    public function send()
-    {
+    public function send() {
         if ($this->twig->hasHtml())
             $this->response->setContent($this->twig->getHtml());
         $this->response->prepare($this->request);
         $this->response->send();
     }
 
-    private function callRule(RouterRule $rule)
-    {
+    private function callRule(RouterRule $rule) {
         return call_user_func_array(array(
             $this->{'Controller\\' . $rule->getClass()},
             $rule->getMethod() . 'Action'

@@ -11,29 +11,37 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
 /**
- * Description of Doctrine
+ * Doctrine class
  *
- * @author Hax0r
+ * @author EpicJhon
  */
-class Doctrine extends Kernel
-{
+class Doctrine extends Kernel {
 
     private $entityManager;
 
-    function __construct()
-    {
+    function __construct() {
+        parent::__construct();
+
+        $dbConfig = $this->properties->getParameter('config')->db;
+
+        if (count((array) $dbConfig) == 1) {
+            $name = key((array) $dbConfig);
+            $dbConfig->$name->name = $name;
+            $this->openConnection($dbConfig->$name);
+        }
+    }
+
+    private function openConnection($db) {
+
         $paths = array(
-            $this->properties->getParameter('baseDir') . 'entity/mapping'
+            $this->properties->getParameter('appDir') . '/databases/' . $db->name . '/maps'
         );
 
-        $isDevMode = true;
-
-        // the connection configuration
         $dbParams = array(
-            'driver' => 'pdo_mysql',
-            'user' => 'iworkphp',
-            'password' => 'iworkphp',
-            'dbname' => 'iworkphp',
+            'driver' => $db->driver,
+            'user' => $db->user,
+            'password' => $db->password,
+            'dbname' => $db->dbname
         );
 
         // New configuration
@@ -41,13 +49,11 @@ class Doctrine extends Kernel
         $this->entityManager = EntityManager::create($dbParams, $config);
     }
 
-    public function getEntityManager()
-    {
+    public function getEntityManager() {
         return $this->entityManager;
     }
 
-    public function setEntityManager($entityManager)
-    {
+    public function setEntityManager($entityManager) {
         $this->entityManager = $entityManager;
     }
 
