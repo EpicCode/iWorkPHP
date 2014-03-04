@@ -8,13 +8,11 @@ namespace iWorkPHP;
  * creates a dynamic interface singleton services 
  * defines the basic services
  */
-class Kernel
-{
+class Kernel {
 
     private $globals;
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->globals = array(
             'env',
             'server',
@@ -30,8 +28,7 @@ class Kernel
         /**
          * clone root variables
          */
-        foreach ($this->globals as $value)
-        {
+        foreach ($this->globals as $value) {
             $var = '_' . strtoupper($value);
             $obj = json_decode(json_encode($GLOBALS[$var]), FALSE);
             $this->set($value, $obj);
@@ -47,24 +44,22 @@ class Kernel
      * @param mixed $var
      * @return mixed
      */
-    public static function &get($service)
-    {
+    public static function &get($service) {
         if (isset($GLOBALS[$service]))
             return $GLOBALS[$service];
-        else
-        {
+        else {
             $GLOBALS[$service] = new $service();
             return $GLOBALS[$service];
         }
     }
 
-    public function __get($name)
-    {
+    // resolve names to get
+    public function __get($name) {
         return $this->get($name);
     }
 
-    public function __set($name, $value)
-    {
+    // resolve names to set
+    public function __set($name, $value) {
         if (!in_array($name, $this->globals))
             return $this->set($name, $value);
     }
@@ -76,8 +71,7 @@ class Kernel
      * @param string $service
      * @return mixed
      */
-    public static function set($name, $service)
-    {
+    public static function set($name, $service) {
         if (is_string($service))
             return $GLOBALS[$name] = new $service();
         else
@@ -87,8 +81,7 @@ class Kernel
     /**
      * Define kernel services
      */
-    private function defineKernelServices()
-    {
+    private function defineKernelServices() {
         $this->properties = new SystemProperty();
         $this->utils = new Utils();
     }

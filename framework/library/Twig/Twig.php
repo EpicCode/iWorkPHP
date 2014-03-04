@@ -1,25 +1,19 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+namespace iWorkPHP\Twig;
 
-namespace iWorkPHP;
+use \iWorkPHP\Kernel;
 
 /**
- * Description of Twig
+ * Twig loader
  *
- * @author Jhonjhon_123
+ * @author EpicJhon
  */
-class Twig extends \Twig_Environment
-{
+class Twig extends \Twig_Environment {
 
     private $html;
 
-    public function __construct()
-    {
+    public function __construct() {
         $loader = new \Twig_Loader_Filesystem(Kernel::get('properties')->getParameter('appDir') . 'views');
 
         /* For developers */
@@ -27,7 +21,7 @@ class Twig extends \Twig_Environment
         //{
         parent::__construct($loader, array(
             'cache' => Kernel::get('properties')->getParameter('appDir') . 'cache',
-            'debug' => true
+            'debug' => Kernel::get('properties')->getParameter('config')->environment->debug
         ));
         parent::addExtension(new \Twig_Extension_Debug());
         parent::setCache(false);
@@ -39,39 +33,32 @@ class Twig extends \Twig_Environment
          */
     }
 
-    public function getHtml()
-    {
+    public function getHtml() {
         return $this->html;
     }
 
-    public function hasHtml()
-    {
+    public function hasHtml() {
         return !empty($this->html);
     }
 
-    public function addGlobal($var, $data = '')
-    {
+    public function addGlobal($var, $data = '') {
         return parent::addGlobal($var, $data);
     }
 
-    public function render($namespace, array $context = array())
-    {
+    public function render($namespace, array $context = array()) {
         $this->html .= parent::render($namespace . '.html.twig', $context);
     }
 
-    public function renderEx($namespace, array $context = array())
-    {
+    public function renderEx($namespace, array $context = array()) {
         $this->html .= parent::render($namespace, $context);
     }
 
-    public function renderFileEx($file, array $context = array())
-    {
+    public function renderFileEx($file, array $context = array()) {
         if ($this->getLoader()->exists($file))
             $this->html .= parent::render($file, $context);
     }
 
-    public function renderFile($file, array $context = array())
-    {
+    public function renderFile($file, array $context = array()) {
         $file = $file . '.html.twig';
         if ($this->getLoader()->exists($file))
             $this->html .= parent::render($file, $context);

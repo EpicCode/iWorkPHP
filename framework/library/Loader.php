@@ -31,7 +31,7 @@ class Loader extends Kernel {
         // Parse the Request HTTP
         $this->request = Request::createFromGlobals();
         // Set Twig service
-        $this->twig = new Twig();
+        $this->twig = new Twig\Twig();
         // Set response object
         $this->response = new Response();
         // Create Router service

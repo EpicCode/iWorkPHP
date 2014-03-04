@@ -1,5 +1,8 @@
 ## Project Config
 ---
+# Environment type
+environment:
+    debug: false
 # Databases Config
 db:
     default:

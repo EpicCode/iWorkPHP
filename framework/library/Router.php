@@ -14,8 +14,6 @@ class Router extends Kernel {
     private $config;
 
     public function loadRules() {
-        // Utils library
-        $Utils = new Utils();
         $this->parseRouterConfig();
         // RouterRule colletion
         $this->rules = new RouterRules();
