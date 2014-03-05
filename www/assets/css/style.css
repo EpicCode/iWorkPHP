@@ -1,0 +1,32 @@
+/* 
+    Created on : 5/03/2014
+    Author     : EpicJhon
+*/
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #F3F5F5;
+    text-align: center;
+    font-family: Verdana, Geneva, sans-serif;
+    color: #666;
+    font-size: x-large;
+}
+body a {
+    text-decoration: none;
+    color: #61665E;
+    font-style: italic;
+    font-size: medium;
+}
+#container {
+    display: table;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+#content {
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+}

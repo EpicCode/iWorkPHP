@@ -7,6 +7,9 @@ onError:
 index_page:
     path: /
     class: { Main:main }
+text_page:
+    path: /
+    class: { Main:text }
 hello_page:
     pattern: "@/hello/(\w+)/@"
     class: { Main:hello }

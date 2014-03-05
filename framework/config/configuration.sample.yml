@@ -14,3 +14,7 @@ db:
 site:
     # remove the "/" at the end
     url: "http://site.com"
+## Advanced
+twig:
+    ext:
+        - Sample

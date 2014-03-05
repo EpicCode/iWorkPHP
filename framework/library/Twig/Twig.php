@@ -17,20 +17,35 @@ class Twig extends \Twig_Environment {
         $loader = new \Twig_Loader_Filesystem(Kernel::get('properties')->getParameter('appDir') . 'views');
 
         /* For developers */
-        //if (Kernel::Get('Sys_Config')->debug)
-        //{
-        parent::__construct($loader, array(
-            'cache' => Kernel::get('properties')->getParameter('appDir') . 'cache',
-            'debug' => Kernel::get('properties')->getParameter('config')->environment->debug
-        ));
-        parent::addExtension(new \Twig_Extension_Debug());
-        parent::setCache(false);
-        //} else
-        /*
-          parent::__construct($loader, array(
-          'cache' => PATH_ROOT . '/cache'
-          ));
-         */
+        if (Kernel::get('properties')->getParameter('config')->environment->debug) {
+            parent::__construct($loader, array(
+                'cache' => Kernel::get('properties')->getParameter('appDir') . 'cache',
+                'debug' => true
+            ));
+            parent::addExtension(new \Twig_Extension_Debug());
+            parent::setCache(false);
+        } else {
+            parent::__construct($loader, array(
+                'cache' => Kernel::get('properties')->getParameter('appDir') . 'cache'
+            ));
+        }
+        $this->addExtensions();
+    }
+
+    private function addExtensions() {
+        // Framework Extensions
+        parent::addExtension(new Extensions\Asset());
+
+        // User Extensions
+        foreach (Kernel::get('properties')->getParameter('config')->twig->ext as $ext) {
+            $class = '\\Model\\Twig\\' . $ext;
+            if (class_exists($class)) {
+
+                $newExt = new $class();
+                if ($newExt instanceof \Twig_Extension)
+                    parent::addExtension($newExt);
+            }
+        }
     }
 
     public function getHtml() {

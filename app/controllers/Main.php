@@ -1,33 +1,27 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 namespace Controller;
 
 /**
- * Description of Main
+ * Main controller
  *
- * @author Jhonjhon_123
+ * @author EpicJhon
  */
-class Main extends Controller
-{
+class Main extends Controller {
 
-    public function mainAction()
-    {
-        $this->sendText('Welcome to iWorkPHP');
+    public function mainAction() {
+        $this->render('main');
     }
 
-    public function helloAction($name)
-    {
+    public function textAction() {
+        $this->sendText('Send plain text');
+    }
+
+    public function helloAction($name) {
         $this->render('hello', array('name' => $name));
     }
-    
-    public function errorAction()
-    {
+
+    public function errorAction() {
         $this->render('404');
     }
 
