@@ -8,7 +8,7 @@ index_page:
     path: /
     class: { Main:main }
 text_page:
-    path: /
+    path: /plain
     class: { Main:text }
 hello_page:
     pattern: "@/hello/(\w+)/@"
