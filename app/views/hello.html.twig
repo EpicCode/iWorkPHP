@@ -1,12 +1,9 @@
-{% extends "default.html.twig" %}
+{% extends "layout.html.twig" %}
 {% set hello = 'Hello ' ~ name ~ '!' %}
 {% set title = hello %}
 {% block body %}
 
         <h1>{{ hello }}</h1>
-        <h2>Custom extensions of Twig:</h2>
-        <b>Base64 encode filter:</b> {{ hello|base64_encode }}<br />
-        <b>Base64 decode filter:</b> {{ hello|base64_encode|base64_decode }}<br />
-        <b>Sample function:</b> {{ sample(hello) }}
+        You can try to change the word "{{ name }}" by your name!
 
 {% endblock %}

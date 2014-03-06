@@ -1,13 +1,9 @@
-{% extends "default.html.twig" %}
+{% extends "layout.html.twig" %}
 {% set error = 'Error 404!' %}
 {% set title = error %}
 {% block body %}
     
-        <div id="container">
-            <div id="content">
-                <h1>{{ error }}</h1><br /><br /><br />
-                <b>The page was not found</b>
-            </div>
-        </div>
+        <br /><br /><h1>{{ error }}</h1><br /><br /><br />
+        <b>The page was not found</b>
 
 {% endblock %}

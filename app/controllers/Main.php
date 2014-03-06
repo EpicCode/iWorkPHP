@@ -13,12 +13,16 @@ class Main extends Controller {
         $this->render('main');
     }
 
+    public function helloAction($name) {
+        $this->render('hello', array('name' => $name));
+    }
+
     public function textAction() {
         $this->sendText('Send plain text');
     }
 
-    public function helloAction($name) {
-        $this->render('hello', array('name' => $name));
+    public function twigAction() {
+        $this->render('twig');
     }
 
     public function errorAction() {

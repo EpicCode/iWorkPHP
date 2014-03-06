@@ -13,3 +13,6 @@ text_page:
 hello_page:
     pattern: "@/hello/(\w+)/@"
     class: { Main:hello }
+twig_page:
+    path: /twig
+    class: { Main:twig }

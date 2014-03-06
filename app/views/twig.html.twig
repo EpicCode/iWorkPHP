@@ -1,0 +1,11 @@
+{% extends "layout.html.twig" %}
+{% set title = 'Custom extensions for Twig' %}
+{% set text = 'iWorkPHP' %}
+{% block body %}
+
+        <h2>{{ title }}</h2>
+        <b>Base64 encode filter:</b> {{ text|base64_encode }}<br />
+        <b>Base64 decode filter:</b> {{ text|base64_encode|base64_decode }}<br />
+        <b>Sample function:</b> {{ sample(text) }}
+
+{% endblock %}
