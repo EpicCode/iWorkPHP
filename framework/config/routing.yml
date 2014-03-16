@@ -11,7 +11,7 @@ text_page:
     path: /plain
     class: { Main:text }
 hello_page:
-    pattern: "@/hello/(\w+)/@"
+    pattern: "/hello/(\w+)/"
     class: { Main:hello }
 twig_page:
     path: /twig

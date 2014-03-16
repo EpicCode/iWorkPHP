@@ -25,7 +25,7 @@ class RouterRule
     function __construct($path, $pattern, $class, $method)
     {
         $this->path = $path;
-        $this->pattern = $pattern;
+        $this->setPattern($pattern);
         $this->class = $class;
         $this->method = $method;
         $this->matches = array();
@@ -63,7 +63,8 @@ class RouterRule
 
     public function setPattern($pattern)
     {
-        $this->pattern = $pattern;
+        if (!empty($pattern))
+            $this->pattern = '#' . $pattern . '#';
     }
 
     public function setClass($class)
