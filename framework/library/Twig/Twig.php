@@ -35,6 +35,7 @@ class Twig extends \Twig_Environment {
     private function addExtensions() {
         // Framework Extensions
         parent::addExtension(new Extensions\Asset());
+        parent::addExtension(new Extensions\Router());
 
         // User Extensions
         foreach (Kernel::get('properties')->getParameter('config')->twig->ext as $ext) {

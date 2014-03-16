@@ -5,9 +5,9 @@
 
         <h1>{{ welcome }}</h1>
         <p>You can explore our examples</p>
-        <p><a href="http://google.com">simple plain text</a></p>
-        <p><a href="http://google.com">hello world</a></p>
-        <p><a href="http://google.com">custom extensions for Twig</a></p>
-        <p><a href="http://google.com">error 404</a></p>
+        <p><a href="{{ path('text_page') }}">simple plain text</a></p>
+        <p><a href="{{ path('hello_page', 'World') }}">hello world</a></p>
+        <p><a href="{{ path('twig_page') }}">custom extensions for Twig</a></p>
+        <p><a href="{{ path('index_page') }}not_exist">error 404</a></p>
 
 {% endblock %}

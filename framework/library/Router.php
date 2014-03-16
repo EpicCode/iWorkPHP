@@ -20,7 +20,7 @@ class Router extends Kernel {
 
         // Parse rules from .yml file
         foreach ($this->config as $key => $value)
-            $this->rules->setRule($key, $this->utils->iifIssetArray($value, 'path', null), $this->utils->iifIssetArray($value, 'pattern', null), key($value['class']), current($value['class']));
+            $this->rules->setRule($key, $this->utils->iifIssetArray($value, 'path', null), $this->utils->iifIssetArray($value, 'pattern', null), $this->utils->iifIssetArray($value, 'format', null), key($value['class']), current($value['class']));
     }
 
     public function matchRule() {

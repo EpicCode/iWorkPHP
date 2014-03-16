@@ -12,6 +12,7 @@ text_page:
     class: { Main:text }
 hello_page:
     pattern: "/hello/(\w+)/"
+    format: "/hello/%s/"
     class: { Main:hello }
 twig_page:
     path: /twig

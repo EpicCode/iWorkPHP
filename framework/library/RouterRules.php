@@ -38,9 +38,9 @@ class RouterRules
         return $this->rules->$name;
     }
 
-    public function setRule($name, $path, $pattern, $className, $classMethod)
+    public function setRule($name, $path, $pattern, $format, $className, $classMethod)
     {
-        $this->rules->$name = New RouterRule($path, $pattern, $className, $classMethod);
+        $this->rules->$name = New RouterRule($path, $pattern, $format, $className, $classMethod);
     }
 
 }
