@@ -32,7 +32,6 @@ class Doctrine extends Kernel {
     }
 
     private function openConnection($db) {
-
         $paths = array(
             $this->properties->getParameter('appDir') . '/databases/' . $db->name . '/maps'
         );
