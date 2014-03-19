@@ -5,15 +5,14 @@ environment:
     debug: true
 # Databases Config
 db:
-    default:
-        driver: pdo_mysql
-        user: username
-        password: password
-        dbname: localhost
+    driver: pdo_mysql
+    user: username
+    password: password
+    dbname: localhost
 # Site config
 site:
     # remove the "/" at the end
-    url: "http://localhost:8080/iWorkPHPGit/iWorkPHP/www"
+    url: "http://site.com"
 ## Advanced
 twig:
     ext:
