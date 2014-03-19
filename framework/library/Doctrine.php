@@ -23,12 +23,7 @@ class Doctrine extends Kernel {
         parent::__construct();
 
         $dbConfig = $this->properties->getParameter('config')->db;
-
-        if (count((array) $dbConfig) == 1) {
-            $name = key((array) $dbConfig);
-            $dbConfig->$name->name = $name;
-            $this->openConnection($dbConfig->$name);
-        }
+        $this->openConnection($dbConfig);
     }
 
     private function openConnection($db) {
