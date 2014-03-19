@@ -5,11 +5,10 @@ environment:
     debug: false
 # Databases Config
 db:
-    default:
-        driver: pdo_mysql
-        user: username
-        password: password
-        dbname: localhost
+    driver: pdo_mysql
+    user: username
+    password: password
+    dbname: localhost
 # Site config
 site:
     # remove the "/" at the end
