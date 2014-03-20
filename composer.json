@@ -8,8 +8,7 @@
 			"iWorkPHP\\" : "framework/library/",
 			"Controller\\" : "app/controllers/",
 			"Model\\" : "app/models/",
-			"Db\\Model\\" : "app/databases/default/models/",
-			"Db\\Repo\\" : "app/databases/default/repos/"
+			"Database" : "app/database/"
 		}
 	},
     "require": {
