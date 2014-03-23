@@ -10,6 +10,13 @@ before_install:
   - composer validate
   - composer install
 before_script:
-    - cd ./framework/test/
+    # Go to settings
+    - cd ./app/config/
+    # Create configuration file
+    - cp configuration.sample.yml configuration.yml
+    # Change the debug mode
+    - sed 's/false/true/g' configuration.yml
+    # Now the test
+    - cd ../../framework/test/
 script:
   - phpunit --colors  --bootstrap "../../vendor/autoload.php" ./
