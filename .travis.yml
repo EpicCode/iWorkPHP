@@ -6,3 +6,7 @@ php:
   - 5.6
 before_install:
   - composer install
+before_script:
+    - cd ./framework/test/
+script:
+  - phpunit --colors  --bootstrap "../../vendor/autoload.php" ./
