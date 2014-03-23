@@ -1,3 +1,5 @@
+<img src="https://travis-ci.org/EpicCode/iWorkPHP.svg" data-bindattr-16="16" title="Build Status Images">
+
 iWorkPHP - Web Framework (BETA)
 =========================
 
