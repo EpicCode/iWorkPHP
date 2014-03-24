@@ -19,6 +19,9 @@ class Doctrine extends Kernel {
 
     private $entityManager;
 
+    /**
+     * @property SystemProperty $properties
+     */
     function __construct() {
         parent::__construct();
 
@@ -26,6 +29,11 @@ class Doctrine extends Kernel {
         $this->openConnection($dbConfig);
     }
 
+    /**
+     * Open database connection
+     * 
+     * @param stdClass $db
+     */
     private function openConnection($db) {
         $paths = array(
             $this->properties->getParameter('appDir') . '/database/maps'
@@ -43,10 +51,20 @@ class Doctrine extends Kernel {
         $this->entityManager = EntityManager::create($dbParams, $config);
     }
 
+    /**
+     * Return EntityManager instance
+     * 
+     * @return \Doctrine\ORM\EntityManager
+     */
     public function getEntityManager() {
         return $this->entityManager;
     }
 
+    /**
+     * Set EntityManager instance
+     * 
+     * @param \Doctrine\ORM\EntityManager $entityManager
+     */
     public function setEntityManager($entityManager) {
         $this->entityManager = $entityManager;
     }

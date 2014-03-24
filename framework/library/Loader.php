@@ -16,6 +16,8 @@ class Loader extends Kernel {
      * Define initial configuration for environment
      * 
      * @param ClassLoader $composer
+     * @property ClassLoader $composer
+     * @property SystemProperty $properties
      */
     public function __construct($composer) {
         parent::__construct();
@@ -28,6 +30,14 @@ class Loader extends Kernel {
         $config->loadConfig();
     }
 
+    /**
+     * Evaluates the request and processes actions
+     * 
+     * @property \Symfony\Component\HttpFoundation\Request $request
+     * @property Twig\Twig $twig
+     * @property \Symfony\Component\HttpFoundation\Response $response
+     * @property Router $router
+     */
     public function handleRequest() {
         // Parse the Request HTTP
         $this->request = Request::createFromGlobals();
@@ -52,6 +62,9 @@ class Loader extends Kernel {
         }
     }
 
+    /**
+     * Send the request response
+     */
     public function send() {
         if ($this->twig->hasHtml())
             $this->response->setContent($this->twig->getHtml());
@@ -59,8 +72,13 @@ class Loader extends Kernel {
         $this->response->send();
     }
 
+    /**
+     * Call the matched rule
+     * 
+     * @param RouterRule $rule
+     */
     private function callRule(RouterRule $rule) {
-        return call_user_func_array(array(
+        call_user_func_array(array(
             $this->{'Controller\\' . $rule->getClass()},
             $rule->getMethod() . 'Action'
                 ), $rule->getMatches()

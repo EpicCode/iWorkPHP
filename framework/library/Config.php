@@ -13,12 +13,20 @@ class Config extends Kernel {
 
     private $config;
 
-    // Load config to environment
+    /**
+     * Load config to environment
+     * 
+     * @property SystemProperty $properties
+     * @property Utils $utils
+     */
     public function loadConfig() {
         $this->parseConfig();
         $this->properties->setParameter('config', $this->utils->arrayToObject($this->config));
     }
 
+    /**
+     * Parse configuration file
+     */
     private function parseConfig() {
         // New Symfony YAML Parser
         $yaml = new Parser();

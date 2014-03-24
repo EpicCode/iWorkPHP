@@ -13,6 +13,12 @@ class Router extends Kernel {
 
     private $config;
 
+    /**
+     * Load rules
+     * 
+     * @property RouterRules $rules
+     * @property Utils $utils
+     */
     public function loadRules() {
         $this->parseRouterConfig();
         // RouterRule colletion
@@ -23,6 +29,14 @@ class Router extends Kernel {
             $this->rules->setRule($key, $this->utils->iifIssetArray($value, 'path', null), $this->utils->iifIssetArray($value, 'pattern', null), $this->utils->iifIssetArray($value, 'format', null), key($value['class']), current($value['class']));
     }
 
+    /**
+     * Match the rule
+     * 
+     * @property Utils $utils
+     * @property \Symfony\Component\HttpFoundation\Request $request
+     * @property SystemProperty $properties
+     * @return RouterRule
+     */
     public function matchRule() {
         $currentPath = $this->utils->standardizeUrl($this->request->getPathInfo());
 
@@ -46,18 +60,27 @@ class Router extends Kernel {
         }
     }
 
+    /**
+     * Check if the rule corresponding to the event OnError exists
+     * 
+     * @return boolean
+     */
     public function hasOnError() {
         return $this->rules->hasRule('onError');
     }
 
+    /**
+     * Get the rule corresponding to the event OnError
+     * 
+     * @return RouterRule
+     */
     public function getOnError() {
         return $this->rules->getRule('onError');
     }
 
-    public function getConfig() {
-        return $this->config;
-    }
-
+    /**
+     * Parse router config
+     */
     private function parseRouterConfig() {
         // New Symfony YAML Parser
         $yaml = new Parser();

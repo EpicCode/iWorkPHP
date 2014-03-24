@@ -13,31 +13,54 @@ namespace iWorkPHP;
  *
  * @author Jhonjhon_123
  */
-class Controller extends Kernel
-{
+class Controller extends Kernel {
 
-    public function sendText($text)
-    {
+    /**
+     * Push a text
+     * 
+     * @param string $text
+     */
+    public function sendText($text) {
         $this->response->setContent($text);
     }
 
-    public function render($namespace, array $context = array())
-    {
+    /**
+     * Render data in a twig template
+     * 
+     * @param string $namespace
+     * @param array $context
+     */
+    public function render($namespace, array $context = array()) {
         $this->twig->render($namespace, $context);
     }
 
-    public function renderEx($namespace, array $context = array())
-    {
+    /**
+     * Render data in a twig template
+     * 
+     * @param string $namespace
+     * @param array $context
+     */
+    public function renderEx($namespace, array $context = array()) {
         $this->twig->renderEx($namespace, $context);
     }
 
-    public function renderFile($file, array $context = array())
-    {
+    /**
+     * Render a file
+     * 
+     * @param string $file
+     * @param array $context
+     */
+    public function renderFile($file, array $context = array()) {
         $this->twig->renderFile($file, $context);
     }
 
-    public function renderFileEx($file, array $context = array())
-    {
+    /**
+     * Render a file
+     * 
+     * @param string $file
+     * @param array $context
+     */
+    public function renderFileEx($file, array $context = array()) {
         $this->twig->renderFileEx($file, $context);
     }
 
