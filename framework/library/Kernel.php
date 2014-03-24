@@ -80,6 +80,8 @@ class Kernel {
 
     /**
      * Define kernel services
+     * @property SystemProperty $properties
+     * @property Utils $utils
      */
     private function defineKernelServices() {
         $this->properties = new SystemProperty();
