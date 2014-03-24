@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/EpicCode/iWorkPHP.svg?branch=master)](https://travis-ci.org/EpicCode/iWorkPHP)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/EpicCode/iWorkPHP/badges/quality-score.png?s=92de3bbf484ab8ebd74101a6c1ddab947eeb4f75)](https://scrutinizer-ci.com/g/EpicCode/iWorkPHP/)
 [![Code Coverage](https://scrutinizer-ci.com/g/EpicCode/iWorkPHP/badges/coverage.png?s=046d0d7f21c8f078e87e6d3126dd64a42247ee3e)](https://scrutinizer-ci.com/g/EpicCode/iWorkPHP/)
+[![Latest Stable Version](https://poser.pugx.org/iworkphp/framework-standard-edition/v/stable.png)](https://packagist.org/packages/iworkphp/framework-standard-edition) [![Total Downloads](https://poser.pugx.org/iworkphp/framework-standard-edition/downloads.png)](https://packagist.org/packages/iworkphp/framework-standard-edition) [![Latest Unstable Version](https://poser.pugx.org/iworkphp/framework-standard-edition/v/unstable.png)](https://packagist.org/packages/iworkphp/framework-standard-edition) [![License](https://poser.pugx.org/iworkphp/framework-standard-edition/license.png)](https://packagist.org/packages/iworkphp/framework-standard-edition)
 
 iWorkPHP - Web Framework (BETA)
 =========================
