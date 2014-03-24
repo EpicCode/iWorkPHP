@@ -24,7 +24,8 @@ class Loader extends Kernel {
         $this->properties->setParameter('baseDir', dirname(dirname(__DIR__)) . '/');
         $this->properties->setParameter('appDir', $this->properties->getParameter('baseDir') . 'app/');
         $this->properties->setParameter('configDir', $this->properties->getParameter('appDir') . 'config/');
-        (new Config())->loadConfig();
+        $config = new Config();
+        $config->loadConfig();
     }
 
     public function handleRequest() {
