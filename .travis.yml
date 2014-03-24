@@ -19,4 +19,7 @@ before_script:
     # Now the test
     - cd ../../framework/test/
 script:
-  - phpunit --colors  --bootstrap "../../vendor/autoload.php" ./
+  - phpunit --coverage-clover=coverage.clover --colors  --bootstrap "../../vendor/autoload.php" ./
+after_script:
+    - wget https://scrutinizer-ci.com/ocular.phar
+    - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
