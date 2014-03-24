@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/EpicCode/iWorkPHP.svg?branch=master)](https://travis-ci.org/EpicCode/iWorkPHP)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/EpicCode/iWorkPHP/badges/quality-score.png?s=92de3bbf484ab8ebd74101a6c1ddab947eeb4f75)](https://scrutinizer-ci.com/g/EpicCode/iWorkPHP/)
+[![Code Coverage](https://scrutinizer-ci.com/g/EpicCode/iWorkPHP/badges/coverage.png?s=046d0d7f21c8f078e87e6d3126dd64a42247ee3e)](https://scrutinizer-ci.com/g/EpicCode/iWorkPHP/)
 
 iWorkPHP - Web Framework (BETA)
 =========================
