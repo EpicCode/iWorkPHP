@@ -10,10 +10,7 @@
 Welcome to iWorkPHP a simple and powerful web framework, with the aim of facilitating the development, making it more intelligent, intuitive and fun. <br/>
 With iWorkPHP, you no longer lose valuable time learning to use complex standards, so you can now just focus on your business.
 
-Installation
--------------------------------
-
-### Standart Edition
+## Installation
 
 The recommended way to create a new project is to use [Composer][1].
 
@@ -26,21 +23,17 @@ Then, use the `create-project` command to generate a new iWorkPHP application:
 
     composer create-project -s dev iworkphp/framework-standard-edition path/to/install
 
-Composer will install iWorkPHP and all its dependencies under the
-`path/to/install` directory.
+Composer will install iWorkPHP and all its dependencies under the `path/to/install` directory.
 
-Documentation
--------------------------------
+## Documentation
 
 Under contruction...
 
-Bugs and feature requests
--------------------------------
+## Bugs and feature requests
 
 Have a bug or a feature request? Please create an [issue][2].
 
-Copyright and license
--------------------------------
+## Copyright and license
 
 Copyright 2014 Epic Code, Inc under the GPL v3 license.
 
