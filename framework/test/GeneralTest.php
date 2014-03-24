@@ -5,7 +5,7 @@ class GeneralTest extends PHPUnit_Framework_TestCase {
     private function indexEmulator() {
         // Get the composer autoload
         $composer = require_once __DIR__ . '/../../vendor/autoload.php';
-        // Call to frameowrk loader
+        // Call to framework loader
         $loader = new \iWorkPHP\Loader($composer);
         // handle actual request
         $loader->handleRequest();
