@@ -12,20 +12,19 @@ class GenerateRepositoriesCommand extends Command {
         $this
                 ->setName('iw:generate:repositories')
                 ->setAliases(array('orm:generate:repositories'))
-                ->setDescription('Generate repository classes from your mapping information.')
-        ;
+                ->setDescription('Generate repository classes from your mapping information.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output) {
         $command = $this->getApplication()->find('orm:generate-repositories');
 
         $arguments = array(
-            'command' => 'orm:generate-repositories',
+            'command' => $command->getName(),
             'dest-path' => \iWorkPHP\Kernel::get('properties')->getParameter('appDir')
         );
 
         $input = new \Symfony\Component\Console\Input\ArrayInput($arguments);
-        $statusCode = $command->run($input, $output);
+        $command->run($input, $output);
     }
 
 }

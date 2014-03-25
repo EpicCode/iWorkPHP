@@ -11,15 +11,14 @@ class MappingDatabaseCommand extends Command {
     protected function configure() {
         $this
                 ->setName('iw:mapping:database')
-                ->setDescription('Generate maps of the database.')
-        ;
+                ->setDescription('Generate maps of the database.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output) {
         $command = $this->getApplication()->find('orm:convert:mapping');
 
         $arguments = array(
-            'command' => 'orm:convert:mapping',
+            'command' => $command->getName(),
             '--from-database' => true,
             '--namespace' => 'Database\Entity\\',
             'to-type' => 'yml',
@@ -27,7 +26,7 @@ class MappingDatabaseCommand extends Command {
         );
 
         $input = new \Symfony\Component\Console\Input\ArrayInput($arguments);
-        $statusCode = $command->run($input, $output);
+        $command->run($input, $output);
     }
 
 }

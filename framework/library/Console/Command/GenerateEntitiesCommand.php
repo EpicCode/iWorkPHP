@@ -11,15 +11,14 @@ class GenerateEntitiesCommand extends Command {
     protected function configure() {
         $this
                 ->setName('iw:generate:entities')
-                ->setDescription('Generate entity classes and method stubs from your mapping information.')
-        ;
+                ->setDescription('Generate entity classes and method stubs from your mapping information.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output) {
         $command = $this->getApplication()->find('orm:generate:entities');
 
         $arguments = array(
-            'command' => 'orm:generate:entities',
+            'command' => $command->getName(),
             '--extend', true,
             'dest-path' => \iWorkPHP\Kernel::get('properties')->getParameter('appDir')
         );
