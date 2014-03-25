@@ -22,7 +22,7 @@ class Doctrine extends Kernel {
     /**
      * @property SystemProperty $properties
      */
-    function __construct() {
+    public function __construct() {
         parent::__construct();
 
         $dbConfig = $this->properties->getParameter('config')->db;
