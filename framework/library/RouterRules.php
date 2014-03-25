@@ -41,5 +41,9 @@ class RouterRules implements \Traversable {
     {
         $this->rules->$name = New RouterRule($path, $pattern, $format, $className, $classMethod);
     }
+    
+    public function getIterator() {
+        /* ... */
+    }
 
 }
