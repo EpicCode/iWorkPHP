@@ -9,8 +9,8 @@ before_install:
     - composer self-update
     - composer --version
     # Update PHPUnit
-    - phpunit --self-update
-    - phpunit --version
+    - wget https://phar.phpunit.de/phpunit.phar
+    - php phpunit.phar --version
     # Validate file composer.json
     - composer validate
     # Install dependencies
@@ -25,7 +25,8 @@ before_script:
     # Now the test
     - cd ../../framework/test/
 script:
-    - phpunit --coverage-clover=coverage.clover --colors  --bootstrap "../../vendor/autoload.php" ./
+    # Running Tests
+    - php phpunit.phar --coverage-clover=coverage.clover --colors  --bootstrap "../../vendor/autoload.php" ./
 after_script:
     - wget https://scrutinizer-ci.com/ocular.phar
     - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
