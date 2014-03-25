@@ -60,13 +60,4 @@ class Doctrine extends Kernel {
         return $this->entityManager;
     }
 
-    /**
-     * Set EntityManager instance
-     * 
-     * @param \Doctrine\ORM\EntityManager $entityManager
-     */
-    public function setEntityManager($entityManager) {
-        $this->entityManager = $entityManager;
-    }
-
 }
