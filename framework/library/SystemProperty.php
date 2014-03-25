@@ -22,7 +22,7 @@ class SystemProperty
      */
     private $config;
 
-    function __construct()
+    public function __construct()
     {
         $this->config = new \stdClass();
     }

@@ -22,7 +22,7 @@ class RouterRule {
     private $method;
     private $matches;
 
-    function __construct($path, $pattern, $format, $class, $method) {
+    public function __construct($path, $pattern, $format, $class, $method) {
         $this->path = $path;
         $this->setPattern($pattern);
         $this->setFormat($format);

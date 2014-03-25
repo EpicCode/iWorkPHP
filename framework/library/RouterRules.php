@@ -18,7 +18,7 @@ class RouterRules
 
     private $rules;
 
-    function __construct()
+    public function __construct()
     {
         $this->rules = new \stdClass();
     }
