@@ -13,37 +13,28 @@ namespace iWorkPHP;
  *
  * @author Jhonjhon_123
  */
-class RouterRules implements \Traversable {
+class RouterRules {
 
     private $rules;
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->rules = new \stdClass();
     }
 
-    public function getRules()
-    {
+    public function getRules() {
         return $this->rules;
     }
 
-    public function hasRule($name)
-    {
+    public function hasRule($name) {
         return property_exists($this->rules, $name);
     }
 
-    public function getRule($name)
-    {
+    public function getRule($name) {
         return $this->rules->$name;
     }
 
-    public function setRule($name, $path, $pattern, $format, $className, $classMethod)
-    {
+    public function setRule($name, $path, $pattern, $format, $className, $classMethod) {
         $this->rules->$name = New RouterRule($path, $pattern, $format, $className, $classMethod);
-    }
-    
-    public function getIterator() {
-        /* ... */
     }
 
 }
