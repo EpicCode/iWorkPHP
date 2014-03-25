@@ -8,7 +8,7 @@ db:
     driver: pdo_mysql
     user: username
     password: password
-    dbname: localhost
+    dbname: database
 # Site config
 site:
     # remove the "/" at the end
