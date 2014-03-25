@@ -13,8 +13,7 @@ namespace iWorkPHP;
  *
  * @author Jhonjhon_123
  */
-class RouterRules
-{
+class RouterRules implements \Traversable {
 
     private $rules;
 
