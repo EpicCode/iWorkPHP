@@ -1,3 +1,15 @@
+filter:
+    excluded_paths: [vendor/*, framework/test/*]
 tools:
     external_code_coverage:
         timeout: 600 # Timeout in seconds.
+    # Similar Code Detector
+    php_sim: true
+    # Metrics
+    php_pdepend: true
+    # Some Metrics + Bug Detection/Auto-Fixes
+    php_analyzer: true
+    # PHP_CodeSniffer tokenises PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.
+    php_code_sniffer: true
+    # Security Advisory Checker
+    sensiolabs_security_checker: true
