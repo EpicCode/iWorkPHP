@@ -63,7 +63,6 @@ class Router extends \Twig_Extension {
             return $url . '/index.php' . vsprintf($rule->getFormat(), $args);
 
         // Else...
-        return;
     }
 
 }
