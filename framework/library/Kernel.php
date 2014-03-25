@@ -41,7 +41,7 @@ class Kernel {
     /**
      * Get Singleton Class (Get Service)
      * 
-     * @param mixed $var
+     * @param string $service
      * @return mixed
      */
     public static function &get($service) {
@@ -53,12 +53,23 @@ class Kernel {
         }
     }
 
-    // resolve names to get
+    /**
+     * Resolve names to get
+     * 
+     * @param string $name
+     * @return mixed
+     */
     public function __get($name) {
         return $this->get($name);
     }
 
-    // resolve names to set
+    /**
+     * Resolve names to set
+     * 
+     * @param string $name
+     * @param mixed $value
+     * @return mixed
+     */
     public function __set($name, $value) {
         if (!in_array($name, $this->globals))
             return $this->set($name, $value);
@@ -80,6 +91,7 @@ class Kernel {
 
     /**
      * Define kernel services
+     * 
      * @property SystemProperty $properties
      * @property Utils $utils
      */

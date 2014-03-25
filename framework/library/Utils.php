@@ -9,6 +9,12 @@ namespace iWorkPHP;
  */
 class Utils {
 
+    /**
+     * Standarize the URL
+     * 
+     * @param string $url
+     * @return string
+     */
     public function standardizeUrl($url) {
 
         // Remove "http|https|ftp|...://", if any
@@ -33,11 +39,25 @@ class Utils {
         return (substr($url, -1) != '/') ? $url . '/' : $url;
     }
 
+    /**
+     * Check if the key exists in array, then return it, if not, 
+     * then return the $default value
+     * 
+     * @param array $array
+     * @param mixed $key
+     * @param mixed $default
+     * @return mixed
+     */
     public function iifIssetArray($array, $key, $default) {
         return (isset($array[$key])) ? $array[$key] : $default;
     }
 
-    // convert an array to an object
+    /**
+     * Convert an array to an object
+     * 
+     * @param array $array
+     * @return stdClass
+     */
     public function arrayToObject($array) {
         return json_decode(json_encode($array), FALSE);
     }
