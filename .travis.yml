@@ -22,11 +22,11 @@ before_script:
     - cp configuration.sample.yml configuration.yml
     # Change the debug mode
     - sed 's/false/true/g' configuration.yml
-    # Now the test
-    - cd ../../framework/test/
+    # Root directory
+    - cd ../../
 script:
     # Running Tests
-    - php phpunit.phar --coverage-clover=coverage.clover --colors  --bootstrap "../../vendor/autoload.php" ./
+    - php phpunit.phar --coverage-clover=coverage.clover --colors  --bootstrap "./vendor/autoload.php" ./framework/test/
 after_script:
     - wget https://scrutinizer-ci.com/ocular.phar
     - php ocular.phar code-coverage:upload --format=php-clover coverage.clover

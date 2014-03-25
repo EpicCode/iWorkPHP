@@ -14,7 +14,7 @@ class Twig extends \Twig_Environment {
     private $html;
 
     public function __construct() {
-        $loader = new \Twig_Loader_Filesystem(Kernel::get('properties')->getParameter('appDir') . 'views');
+        $loader = new \Twig_Loader_Filesystem(Kernel::get('properties')->getParameter('appDir') . 'view');
 
         /* For developers */
         if (Kernel::get('properties')->getParameter('config')->environment->debug) {
@@ -34,8 +34,8 @@ class Twig extends \Twig_Environment {
 
     private function addExtensions() {
         // Framework Extensions
-        parent::addExtension(new Extensions\Asset());
-        parent::addExtension(new Extensions\Router());
+        parent::addExtension(new Extension\Asset());
+        parent::addExtension(new Extension\Router());
 
         // User Extensions
         foreach (Kernel::get('properties')->getParameter('config')->twig->ext as $ext) {
@@ -62,11 +62,11 @@ class Twig extends \Twig_Environment {
     }
 
     public function render($namespace, array $context = array()) {
-        $this->html .= parent::render($namespace . '.html.twig', $context);
+        $this->html .= parent::render(ucfirst($namespace) . '.html.twig', $context);
     }
 
     public function renderEx($namespace, array $context = array()) {
-        $this->html .= parent::render($namespace, $context);
+        $this->html .= parent::render(ucfirst($namespace), $context);
     }
 
     public function renderFileEx($file, array $context = array()) {

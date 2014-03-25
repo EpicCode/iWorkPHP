@@ -1,6 +1,6 @@
 <?php
 
-namespace iWorkPHP\Twig\Extensions;
+namespace iWorkPHP\Twig\Extension;
 
 /**
  * Get absolute url of an router rule

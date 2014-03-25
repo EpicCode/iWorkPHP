@@ -22,7 +22,7 @@ class MappingDatabaseCommand extends Command {
             '--from-database' => true,
             '--namespace' => 'Database\Entity\\',
             'to-type' => 'yml',
-            'dest-path' => \iWorkPHP\Kernel::get('properties')->getParameter('appDir') . 'database/maps/'
+            'dest-path' => \iWorkPHP\Kernel::get('properties')->getParameter('appDir') . 'database/Metadata/'
         );
 
         $input = new \Symfony\Component\Console\Input\ArrayInput($arguments);

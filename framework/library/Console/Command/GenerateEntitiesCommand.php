@@ -19,7 +19,7 @@ class GenerateEntitiesCommand extends Command {
 
         $arguments = array(
             'command' => $command->getName(),
-            '--extend', true,
+            '--generate-annotations' => true,
             'dest-path' => \iWorkPHP\Kernel::get('properties')->getParameter('appDir')
         );
 
