@@ -6,6 +6,13 @@ use iWorkPHP\Doctrine;
 $composer = require_once __DIR__ . '/../vendor/autoload.php';
 $loader = new \iWorkPHP\Loader($composer);
 
+$commands = array(
+    // Doctrine Commands
+    new \iWorkPHP\Console\Command\MappingDatabaseCommand(),
+    new \iWorkPHP\Console\Command\GenerateEntitiesCommand(),
+    new \iWorkPHP\Console\Command\GenerateRepositoriesCommand()
+);
+
 $Doctrine = new Doctrine();
 $helperSet = \Doctrine\ORM\Tools\Console\ConsoleRunner::createHelperSet($Doctrine->getEntityManager());
-\Doctrine\ORM\Tools\Console\ConsoleRunner::run($helperSet, array());
+\Doctrine\ORM\Tools\Console\ConsoleRunner::run($helperSet, $commands);
