@@ -2,8 +2,6 @@
 
 namespace iWorkPHP;
 
-use Symfony\Component\Yaml\Parser;
-
 /**
  * Router
  *
@@ -81,10 +79,8 @@ class Router extends Kernel {
      * Parse router config
      */
     private function parseRouterConfig() {
-        // New Symfony YAML Parser
-        $yaml = new Parser();
         // Load raw rules from .yml file
-        $this->config = $yaml->parse(file_get_contents($this->properties->getParameter('configDir') . 'routing.yml'));
+        $this->config = $this->utils->parseYAML($this->properties->getParameter('configDir') . 'routing.yml');
     }
 
 }

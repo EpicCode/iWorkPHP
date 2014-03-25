@@ -62,4 +62,22 @@ class Utils {
         return json_decode(json_encode($array), FALSE);
     }
 
+    /**
+     * Parse YAML file
+     * 
+     * @param string $file
+     * @return mixed
+     */
+    public function parseYAML($file) {
+        // New Symfony YAML Parser
+        $yaml = new Symfony\Component\Yaml\Parser();
+
+        try {
+            // Returns an array data from an YAML file
+            return $yaml->parse(file_get_contents($file));
+        } catch (\Symfony\Component\Yaml\Exception\ParseException $e) {
+            return false;
+        }
+    }
+
 }
