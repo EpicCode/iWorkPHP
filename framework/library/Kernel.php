@@ -7,6 +7,9 @@ namespace iWorkPHP;
  * 
  * creates a dynamic interface singleton services 
  * defines the basic services
+ * 
+ * @property SystemProperty $properties
+ * @property Utils $utils
  */
 class Kernel {
 
@@ -92,8 +95,6 @@ class Kernel {
     /**
      * Define kernel services
      * 
-     * @property SystemProperty $properties
-     * @property Utils $utils
      */
     private function defineKernelServices() {
         $this->properties = new SystemProperty();

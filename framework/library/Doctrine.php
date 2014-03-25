@@ -14,6 +14,7 @@ use Doctrine\ORM\EntityManager;
  * Doctrine class
  *
  * @author EpicJhon
+ * @property SystemProperty $properties
  */
 class Doctrine extends Kernel {
 
@@ -22,7 +23,6 @@ class Doctrine extends Kernel {
     /**
      * Constructor
      * 
-     * @property SystemProperty $properties
      */
     public function __construct() {
         parent::__construct();

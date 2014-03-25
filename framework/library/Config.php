@@ -8,6 +8,8 @@ use Symfony\Component\Yaml\Parser;
  * Config parser
  *
  * @author EpicJhon
+ * @property SystemProperty $properties
+ * @property Utils $utils
  */
 class Config extends Kernel {
 
@@ -16,8 +18,6 @@ class Config extends Kernel {
     /**
      * Load config to environment
      * 
-     * @property SystemProperty $properties
-     * @property Utils $utils
      */
     public function loadConfig() {
         $this->parseConfig();

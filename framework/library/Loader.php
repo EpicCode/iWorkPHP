@@ -9,6 +9,12 @@ use Symfony\Component\HttpFoundation\Response;
  * The loader of framework
  *
  * @author EpicJhon
+ * @property ClassLoader $composer
+ * @property SystemProperty $properties
+ * @property \Symfony\Component\HttpFoundation\Request $request
+ * @property Twig\Twig $twig
+ * @property \Symfony\Component\HttpFoundation\Response $response
+ * @property Router $router
  */
 class Loader extends Kernel {
 
@@ -16,8 +22,6 @@ class Loader extends Kernel {
      * Define initial configuration for environment
      * 
      * @param ClassLoader $composer
-     * @property ClassLoader $composer
-     * @property SystemProperty $properties
      */
     public function __construct($composer) {
         parent::__construct();
@@ -33,10 +37,6 @@ class Loader extends Kernel {
     /**
      * Evaluates the request and processes actions
      * 
-     * @property \Symfony\Component\HttpFoundation\Request $request
-     * @property Twig\Twig $twig
-     * @property \Symfony\Component\HttpFoundation\Response $response
-     * @property Router $router
      */
     public function handleRequest() {
         // Parse the Request HTTP

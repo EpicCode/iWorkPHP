@@ -8,6 +8,10 @@ use Symfony\Component\Yaml\Parser;
  * Router
  *
  * @author EpicJhon
+ * @property RouterRules $rules
+ * @property Utils $utils
+ * @property \Symfony\Component\HttpFoundation\Request $request
+ * @property SystemProperty $properties
  */
 class Router extends Kernel {
 
@@ -16,8 +20,6 @@ class Router extends Kernel {
     /**
      * Load rules
      * 
-     * @property RouterRules $rules
-     * @property Utils $utils
      */
     public function loadRules() {
         $this->parseRouterConfig();
@@ -32,9 +34,6 @@ class Router extends Kernel {
     /**
      * Match the rule
      * 
-     * @property Utils $utils
-     * @property \Symfony\Component\HttpFoundation\Request $request
-     * @property SystemProperty $properties
      * @return RouterRule
      */
     public function matchRule() {
