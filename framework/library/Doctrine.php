@@ -20,6 +20,8 @@ class Doctrine extends Kernel {
     private $entityManager;
 
     /**
+     * Constructor
+     * 
      * @property SystemProperty $properties
      */
     public function __construct() {
