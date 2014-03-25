@@ -19,14 +19,14 @@ class Twig extends \Twig_Environment {
         /* For developers */
         if (Kernel::get('properties')->getParameter('config')->environment->debug) {
             parent::__construct($loader, array(
-                'cache' => Kernel::get('properties')->getParameter('appDir') . 'cache',
+                'cache' => Kernel::get('properties')->getParameter('frameDir') . 'cache',
                 'debug' => true
             ));
             parent::addExtension(new \Twig_Extension_Debug());
             parent::setCache(false);
         } else {
             parent::__construct($loader, array(
-                'cache' => Kernel::get('properties')->getParameter('appDir') . 'cache'
+                'cache' => Kernel::get('properties')->getParameter('frameDir') . 'cache'
             ));
         }
         $this->addExtensions();
