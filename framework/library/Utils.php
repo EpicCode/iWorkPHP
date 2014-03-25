@@ -70,7 +70,7 @@ class Utils {
      */
     public function parseYAML($file) {
         // New Symfony YAML Parser
-        $yaml = new Symfony\Component\Yaml\Parser();
+        $yaml = new \Symfony\Component\Yaml\Parser();
 
         try {
             // Returns an array data from an YAML file
