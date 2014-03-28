@@ -8,7 +8,6 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * The loader of framework
  *
- * @author EpicJhon
  * @property ClassLoader $composer
  * @property SystemProperty $properties
  * @property \Symfony\Component\HttpFoundation\Request $request
