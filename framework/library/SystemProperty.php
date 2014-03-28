@@ -1,25 +1,12 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 namespace iWorkPHP;
 
 /**
- * Description of SystemProperty
- *
- * @author Jhonjhon_123
+ * System property
  */
 class SystemProperty
 {
-
-    /**
-     *
-     * @var Object
-     */
     private $config;
 
     public function __construct()
@@ -27,16 +14,34 @@ class SystemProperty
         $this->config = new \stdClass();
     }
 
+    /**
+     * Set parameter
+     * 
+     * @param type $key
+     * @param type $value
+     */
     public function setParameter($key, $value)
     {
         $this->config->$key = $value;
     }
-
+    
+    /**
+     * Get parameter
+     * 
+     * @param type $key
+     * @return type
+     */
     public function getParameter($key)
     {
         return $this->config->$key;
     }
-
+    
+    /**
+     * Check if parameter exists
+     * 
+     * @param type $key
+     * @return type
+     */
     public function hasParameter($key)
     {
         return property_exists($this->config, $key);
