@@ -17,8 +17,8 @@ class SystemProperty
     /**
      * Set parameter
      * 
-     * @param type $key
-     * @param type $value
+     * @param string $key
+     * @param mixed $value
      */
     public function setParameter($key, $value)
     {
@@ -28,8 +28,8 @@ class SystemProperty
     /**
      * Get parameter
      * 
-     * @param type $key
-     * @return type
+     * @param string $key
+     * @return mixed
      */
     public function getParameter($key)
     {
@@ -39,8 +39,8 @@ class SystemProperty
     /**
      * Check if parameter exists
      * 
-     * @param type $key
-     * @return type
+     * @param string $key
+     * @return boolean
      */
     public function hasParameter($key)
     {
