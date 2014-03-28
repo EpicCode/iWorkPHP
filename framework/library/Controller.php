@@ -1,18 +1,14 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 namespace iWorkPHP;
 
 /**
- * Description of Controller
+ * Base controller
  *
- * @author Jhonjhon_123
+ * @property \Symfony\Component\HttpFoundation\Response $response
+ * @property Twig\Twig $twig
  */
+
 class Controller extends Kernel {
 
     /**
