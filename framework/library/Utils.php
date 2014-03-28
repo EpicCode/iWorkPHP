@@ -3,10 +3,9 @@
 namespace iWorkPHP;
 
 /**
- * Description of Utils
- *
- * @author EpicJhon
+ * Utilities
  */
+
 class Utils {
 
     /**
