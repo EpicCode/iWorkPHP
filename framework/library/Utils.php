@@ -44,7 +44,7 @@ class Utils {
      * then return the $default value
      * 
      * @param array $array
-     * @param mixed $key
+     * @param string $key
      * @param mixed $default
      * @return mixed
      */
