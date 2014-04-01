@@ -5,7 +5,7 @@ namespace iWorkPHP\Console\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;
 
-abstract class BasicCommand extends Command {
+abstract class BaseCommand extends Command {
 
     /**
      * Invoke a specified command

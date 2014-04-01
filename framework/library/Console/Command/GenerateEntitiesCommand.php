@@ -5,7 +5,7 @@ namespace iWorkPHP\Console\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class GenerateEntitiesCommand extends BasicCommand {
+class GenerateEntitiesCommand extends BaseCommand {
 
     protected function configure() {
         $this
