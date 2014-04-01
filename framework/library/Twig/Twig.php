@@ -32,6 +32,9 @@ class Twig extends \Twig_Environment {
         $this->addExtensions();
     }
 
+    /**
+     * Load your own extensions and user extensions
+     */
     private function addExtensions() {
         // Framework Extensions
         parent::addExtension(new Extension\Asset());
@@ -49,33 +52,81 @@ class Twig extends \Twig_Environment {
         }
     }
 
+    /**
+     * Get HTML
+     * 
+     * @return string
+     */
     public function getHtml() {
         return $this->html;
     }
 
+    /**
+     * Has HTML
+     * 
+     * @return boolean
+     */
     public function hasHtml() {
         return !empty($this->html);
     }
 
+    /**
+     * Add a global variable to the environment
+     * 
+     * @param string $var
+     * @param mixed $data (optional)
+     */
     public function addGlobal($var, $data = '') {
-        return parent::addGlobal($var, $data);
+        parent::addGlobal($var, $data);
     }
 
+    /**
+     * Render a template
+     * 
+     * @description find a template file in views that match the format: {$namespace}.html.twig
+     * 
+     * @param string $namespace
+     * @param array $context (optional)
+     */
     public function render($namespace, array $context = array()) {
         $this->html .= parent::render(ucfirst($namespace) . '.html.twig', $context);
     }
 
+    /**
+     * Render a template
+     * 
+     * @description find a template file in views match {$namespace}
+     * 
+     * @param string $namespace
+     * @param array $context (optional)
+     */
     public function renderEx($namespace, array $context = array()) {
         $this->html .= parent::render(ucfirst($namespace), $context);
     }
 
-    public function renderFileEx($file, array $context = array()) {
+    /**
+     * Render template file
+     * 
+     * @description find a template {$file}.html.twig
+     * 
+     * @param string $file
+     * @param array $context (optional)
+     */
+    public function renderFile($file, array $context = array()) {
+        $file = $file . '.html.twig';
         if ($this->getLoader()->exists($file))
             $this->html .= parent::render($file, $context);
     }
 
-    public function renderFile($file, array $context = array()) {
-        $file = $file . '.html.twig';
+    /**
+     * Render template file
+     * 
+     * @description find a template {$file}
+     * 
+     * @param string $file
+     * @param array $context (optional)
+     */
+    public function renderFileEx($file, array $context = array()) {
         if ($this->getLoader()->exists($file))
             $this->html .= parent::render($file, $context);
     }
