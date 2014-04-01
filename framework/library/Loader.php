@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * The loader of framework
  *
- * @property ClassLoader $composer
+ * @property \Composer\Autoload\ClassLoader $composer
  * @property SystemProperty $properties
  * @property \Symfony\Component\HttpFoundation\Request $request
  * @property Twig\Twig $twig
