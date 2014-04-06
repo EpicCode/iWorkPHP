@@ -1,6 +1,6 @@
 <?php
 
-namespace iWorkPHP\Console\Command;
+namespace iWorkPHP\Service\Console\Command;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -16,7 +16,7 @@ class GenerateRepositoriesCommand extends BasicCommand {
 
     protected function execute(InputInterface $input, OutputInterface $output) {
         $arguments = array(
-            'dest-path' => \iWorkPHP\Kernel::get('properties')->getParameter('appDir')
+            'dest-path' => $this->config->getParam('appDir')
         );
 
         $this->invokeCommand('orm:generate-repositories', $arguments, $output);

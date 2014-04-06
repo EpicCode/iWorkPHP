@@ -1,18 +1,22 @@
 #!/usr/bin/env php
 <?php
-
-use iWorkPHP\Doctrine;
-
 $composer = require_once __DIR__ . '/../vendor/autoload.php';
-$loader = new \iWorkPHP\Loader($composer);
+$loader = new \iWorkPHP\Core\Loader($composer);
+
+$config = $loader->getService('config');
 
 $commands = array(
     // Doctrine Commands
-    new \iWorkPHP\Console\Command\MappingDatabaseCommand(),
-    new \iWorkPHP\Console\Command\GenerateEntitiesCommand(),
-    new \iWorkPHP\Console\Command\GenerateRepositoriesCommand()
+    new \iWorkPHP\Service\Console\Command\MappingDatabaseCommand(),
+    new \iWorkPHP\Service\Console\Command\GenerateEntitiesCommand(),
+    new \iWorkPHP\Service\Console\Command\GenerateRepositoriesCommand()
 );
 
-$Doctrine = new Doctrine();
+// Inyect config service
+foreach ($commands as $command) {
+    $command->setConfig($config);
+}
+
+$Doctrine = $loader->getService('doctrine');
 $helperSet = \Doctrine\ORM\Tools\Console\ConsoleRunner::createHelperSet($Doctrine->getEntityManager());
 \Doctrine\ORM\Tools\Console\ConsoleRunner::run($helperSet, $commands);

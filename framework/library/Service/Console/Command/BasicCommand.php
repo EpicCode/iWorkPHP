@@ -1,11 +1,18 @@
 <?php
 
-namespace iWorkPHP\Console\Command;
+namespace iWorkPHP\Service\Console\Command;
 
+use iWorkPHP\Service\Config\Config;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;
 
 abstract class BasicCommand extends Command {
+
+    protected $config = null;
+
+    public function setConfig(Config $config) {
+        $this->config = $config;
+    }
 
     /**
      * Invoke a specified command
