@@ -2,6 +2,8 @@
 
 namespace Controller;
 
+use \iWorkPHP\Core\Controller;
+
 /**
  * Main controller
  *
