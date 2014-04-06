@@ -5,7 +5,7 @@ class UtilsTest extends PHPUnit_Framework_TestCase {
     private $utils;
 
     public function __construct() {
-        $this->utils = new \iWorkPHP\Utils();
+        $this->utils = new \iWorkPHP\Service\Utils\Utils();
     }
 
     public function testArrayToObject() {
