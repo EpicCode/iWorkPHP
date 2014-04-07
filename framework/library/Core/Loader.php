@@ -45,7 +45,7 @@ class Loader extends Kernel {
      * 
      * @param ClassLoader $composer
      */
-    public function __construct(ClassLoader $composer) {
+    public function __construct($composer) {
         $this->composer = $composer;
         $this->loadServices();
     }
