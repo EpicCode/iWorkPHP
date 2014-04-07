@@ -3,26 +3,39 @@
 namespace iWorkPHP\Service\DependencyInjector;
 
 use \DI\ContainerBuilder;
+use \iWorkPHP\Service\Config\Config;
 
 /**
  * Description of DependencyInjector
  */
 class DependencyInjector {
 
+    /**
+     *
+     * @var Config
+     */
     private $config;
+
+    /**
+     *
+     * @var \DI\Container
+     */
     private $container;
 
     /**
      * Constructor
+     * 
+     * @param Config $config
      */
-    public function __construct(\iWorkPHP\Service\Config\Config $config) {
+    public function __construct(Config $config) {
         $this->config = $config;
         $this->loadContainer(new ContainerBuilder());
     }
 
     /**
+     * Load container by 'ContainerBuilder'
      * 
-     * @param type $builder
+     * @param ContainerBuilder $builder
      */
     private function loadContainer($builder) {
         $path = $this->config->getParam('appDir') . 'config/di/';
@@ -45,9 +58,9 @@ class DependencyInjector {
     }
 
     /**
-     * Get service container
+     * Get container
      * 
-     * @return type object
+     * @return \DI\Container
      */
     public function getContainer() {
         return $this->container;
