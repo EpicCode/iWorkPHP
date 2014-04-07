@@ -20,7 +20,7 @@ class Asset extends \Twig_Extension {
     /**
      * Constructor
      * 
-     * @param type $config
+     * @param Config $config
      */
     public function __construct(Config $config) {
         $this->config = $config;
@@ -37,7 +37,7 @@ class Asset extends \Twig_Extension {
     /**
      * Add a set of functions to Twig
      * 
-     * @return array
+     * @return \Twig_SimpleFunction[]
      */
     public function getFunctions() {
         return array(

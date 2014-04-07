@@ -44,7 +44,7 @@ class Router extends \Twig_Extension {
     /**
      * Add a set of functions to Twig
      * 
-     * @return array
+     * @return \Twig_SimpleFunction[]
      */
     public function getFunctions() {
         return array(
