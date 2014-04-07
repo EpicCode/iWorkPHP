@@ -8,37 +8,35 @@ use \iWorkPHP\Service\Router\Router;
 /**
  * Twig loader
  */
-
 class Twig extends \Twig_Environment {
 
     /**
      *
-     * @var type 
+     * @var Config 
      */
     private $config;
-    
+
     /**
      *
-     * @var type 
+     * @var Router 
      */
     private $router;
-    
-    
+
     /**
      *
-     * @var type 
+     * @var string 
      */
     private $html;
 
     /**
-     * Constructor
      * 
      * @param \iWorkPHP\Service\Config\Config $config
+     * @param \iWorkPHP\Service\Router\Router $router
      */
     public function __construct(Config $config, Router $router) {
         $this->config = $config;
         $this->router = $router;
-        
+
         $loader = new \Twig_Loader_Filesystem($this->config->getParam('appDir') . 'view');
 
         /* For developers */
@@ -60,7 +58,7 @@ class Twig extends \Twig_Environment {
     }
 
     /**
-     * 
+     * Load your own extensions and user extensions
      */
     private function addExtensions() {
         // Framework Extensions
@@ -70,10 +68,10 @@ class Twig extends \Twig_Environment {
         // User Extensions
         foreach ($this->config->getParam('twig')->ext as $ext) {
             $class = '\\Model\\Twig\\' . $ext;
-            
+
             if (class_exists($class)) {
                 $newExt = new $class();
-                
+
                 if ($newExt instanceof \Twig_Extension)
                     parent::addExtension($newExt);
             }
@@ -81,66 +79,80 @@ class Twig extends \Twig_Environment {
     }
 
     /**
+     * Get HTML
      * 
-     * @return type
+     * @return string
      */
     public function getHtml() {
         return $this->html;
     }
 
     /**
+     * Has HTML
      * 
-     * @return type
+     * @return boolean
      */
     public function hasHtml() {
         return !empty($this->html);
     }
 
     /**
+     * Add a global variable to the environment
      * 
-     * @param type $var
-     * @param type $data
-     * @return type
+     * @param string $var
+     * @param mixed $data (optional)
      */
     public function addGlobal($var, $data = '') {
-        return parent::addGlobal($var, $data);
+        parent::addGlobal($var, $data);
     }
 
     /**
+     * Render a template
      * 
-     * @param type $namespace
-     * @param array $context
+     * @description find a template file in views that match the format: {$namespace}.html.twig
+     * 
+     * @param string $namespace
+     * @param array $context (optional)
      */
     public function render($namespace, array $context = array()) {
         $this->html .= parent::render(ucfirst($namespace) . '.html.twig', $context);
     }
 
     /**
+     * Render a template
      * 
-     * @param type $namespace
-     * @param array $context
+     * @description find a template file in views match {$namespace}
+     * 
+     * @param string $namespace
+     * @param array $context (optional)
      */
     public function renderEx($namespace, array $context = array()) {
         $this->html .= parent::render(ucfirst($namespace), $context);
     }
 
     /**
+     * Render template file
      * 
-     * @param type $file
-     * @param array $context
+     * @description find a template {$file}.html.twig
+     * 
+     * @param string $file
+     * @param array $context (optional)
      */
-    public function renderFileEx($file, array $context = array()) {
+    public function renderFile($file, array $context = array()) {
+        $file = $file . '.html.twig';
         if ($this->getLoader()->exists($file))
             $this->html .= parent::render($file, $context);
     }
 
     /**
+     * Render template file
+     * 
+     * @description find a template {$file}
      * 
      * @param string $file
-     * @param array $context
+     * @param array $context (optional)
      */
-    public function renderFile($file, array $context = array()) {
-        $file = $file . '.html.twig';
+    public function renderFileEx($file, array $context = array()) {
         if ($this->getLoader()->exists($file))
             $this->html .= parent::render($file, $context);
     }
