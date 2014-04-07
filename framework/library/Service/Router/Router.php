@@ -11,17 +11,42 @@ use \iWorkPHP\Service\HttpFoundation\Request;
  */
 class Router {
 
+    /**
+     *
+     * @var Config
+     */
     private $config;
+
+    /**
+     *
+     * @var Utils
+     */
     private $utils;
+
+    /**
+     *
+     * @var Request
+     */
     private $request;
+
+    /**
+     *
+     * @var array 
+     */
     private $ruleConfig;
+
+    /**
+     *
+     * @var RouterRules
+     */
     private $rules;
 
     /**
      * Constructor
      * 
-     * @param \iWorkPHP\Service\Utils\Utils $utils
-     * @param \iWorkPHP\Service\Config\Config $config
+     * @param Utils $utils
+     * @param Config $config
+     * @param Request $request
      */
     public function __construct(Utils $utils, Config $config, Request $request) {
         $this->utils = $utils;
@@ -39,13 +64,15 @@ class Router {
         $this->rules = new RouterRules();
 
         // Parse rules from .yml file
-        foreach ($this->ruleConfig as $key => $value)
+        foreach ($this->ruleConfig as $key => $value) {
             $this->rules->addRule($key, $this->utils->iifIssetArray($value, 'path', null), $this->utils->iifIssetArray($value, 'pattern', null), $this->utils->iifIssetArray($value, 'format', null), key($value['class']), current($value['class']));
+        }
     }
 
     /**
+     * Get router rules
      * 
-     * @return type
+     * @return RouterRules
      */
     public function getRules() {
         return $this->rules;
