@@ -1,28 +1,34 @@
 <?php
 
-/**
- * BETA
- * you should not even use it!
- */
-
 namespace iWorkPHP\Service\ORM;
 
+use \iWorkPHP\Service\Config\Config;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
 /**
  * Doctrine class
  */
-
 class Doctrine {
-    
+
+    /**
+     *
+     * @var EntityManager
+     */
     private $entityManager;
+
+    /**
+     *
+     * @var Config
+     */
     private $config;
 
     /**
      * Constructor
+     * 
+     * @param Config $config
      */
-    public function __construct(\iWorkPHP\Service\Config\Config $config) {
+    public function __construct(Config $config) {
         $this->config = $config;
 
         $dbConfig = $this->config->getParam('db');
@@ -54,7 +60,7 @@ class Doctrine {
     /**
      * Return EntityManager instance
      * 
-     * @return \Doctrine\ORM\EntityManager
+     * @return EntityManager
      */
     public function getEntityManager() {
         return $this->entityManager;
