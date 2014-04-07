@@ -7,6 +7,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class GenerateRepositoriesCommand extends BasicCommand {
 
+    /**
+     * Configuration of the command
+     */
     protected function configure() {
         $this
                 ->setName('iw:generate:repositories')
@@ -14,6 +17,12 @@ class GenerateRepositoriesCommand extends BasicCommand {
                 ->setDescription('Generate repository classes from your mapping information.');
     }
 
+    /**
+     * Executes the current command
+     * 
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     */
     protected function execute(InputInterface $input, OutputInterface $output) {
         $arguments = array(
             'dest-path' => $this->config->getParam('appDir')
