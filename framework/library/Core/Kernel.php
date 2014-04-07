@@ -7,9 +7,10 @@ namespace iWorkPHP\Core;
  * 
  */
 class Kernel implements KernelInterface {
-    
+
     /**
-     * @var ServerManager
+     *
+     * @var ServiceManager
      */
     private static $serviceManager;
 
@@ -17,11 +18,14 @@ class Kernel implements KernelInterface {
      * Load critical services
      */
     public static function loadServices() {
-        self::$serviceManager = new ServiceManager(); 
+        self::$serviceManager = new ServiceManager();
     }
 
     /**
      * Get service instance by name
+     * 
+     * @param string $name
+     * @return mixed
      */
     public static function getService($name) {
         return self::$serviceManager->getService($name);
