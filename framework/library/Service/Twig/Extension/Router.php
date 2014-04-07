@@ -2,6 +2,9 @@
 
 namespace iWorkPHP\Service\Twig\Extension;
 
+use \iWorkPHP\Service\Config\Config;
+use \iWorkPHP\Service\Router\Router;
+
 /**
  * Get absolute url of an router rule
  */
@@ -9,16 +12,23 @@ class Router extends \Twig_Extension {
 
     /**
      *
-     * @var type 
+     * @var Config 
      */
     private $config;
+
+    /**
+     *
+     * @var Router
+     */
     private $router;
 
     /**
+     * Constructor
      * 
-     * @param type $config
+     * @param Config $config
+     * @param Router $router
      */
-    public function __construct($config, $router) {
+    public function __construct(Config $config, Router $router) {
         $this->config = $config;
         $this->router = $router;
     }
@@ -31,14 +41,22 @@ class Router extends \Twig_Extension {
         return 'router';
     }
 
-    // Add a set of functions to Twig
+    /**
+     * Add a set of functions to Twig
+     * 
+     * @return array
+     */
     public function getFunctions() {
         return array(
             new \Twig_SimpleFunction('path', array($this, 'getRouterRule'))
         );
     }
 
-    // Callback
+    /**
+     * Callback
+     * 
+     * @return string|void
+     */
     public function getRouterRule() {
 
         // Least the name of the router rule

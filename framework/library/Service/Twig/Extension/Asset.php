@@ -2,6 +2,8 @@
 
 namespace iWorkPHP\Service\Twig\Extension;
 
+use \iWorkPHP\Service\Config\Config;
+
 /**
  * Get absolute url of an asset
  * 
@@ -11,15 +13,16 @@ class Asset extends \Twig_Extension {
 
     /**
      *
-     * @var type 
+     * @var Config
      */
     private $config;
 
     /**
+     * Constructor
      * 
      * @param type $config
      */
-    public function __construct($config) {
+    public function __construct(Config $config) {
         $this->config = $config;
     }
 
@@ -31,14 +34,23 @@ class Asset extends \Twig_Extension {
         return 'asset';
     }
 
-    // Add a set of functions to Twig
+    /**
+     * Add a set of functions to Twig
+     * 
+     * @return array
+     */
     public function getFunctions() {
         return array(
             new \Twig_SimpleFunction('asset', array($this, 'getAssetUrl'))
         );
     }
 
-    // Callback
+    /**
+     * Callback
+     * 
+     * @param string $url
+     * @return string
+     */
     public function getAssetUrl($url) {
         // If the url is absolute, return the same url
         if (strpos($url, '//') === 0 or strpos($url, '://') === true) {
