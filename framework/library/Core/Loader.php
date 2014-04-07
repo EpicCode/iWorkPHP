@@ -3,6 +3,7 @@
 namespace iWorkPHP\Core;
 
 use \iWorkPHP\Service\Router\RouterRule;
+use \Composer\Autoload\ClassLoader;
 
 /**
  * The loader of framework
@@ -10,11 +11,41 @@ use \iWorkPHP\Service\Router\RouterRule;
 class Loader extends Kernel {
 
     /**
+     *
+     * @var ClassLoader 
+     */
+    private $composer;
+
+    /**
+     *
+     * @var \iWorkPHP\Service\HttpFoundation\Request 
+     */
+    private $request;
+
+    /**
+     *
+     * @var \iWorkPHP\Service\Twig\Twig
+     */
+    private $twig;
+
+    /**
+     *
+     * @var \iWorkPHP\Service\HttpFoundation\Response
+     */
+    private $response;
+
+    /**
+     *
+     * @var \iWorkPHP\Service\Router\Router
+     */
+    private $router;
+
+    /**
      * Define initial configuration for environment
      * 
      * @param ClassLoader $composer
      */
-    public function __construct($composer) {
+    public function __construct(ClassLoader $composer) {
         $this->composer = $composer;
         $this->loadServices();
     }
@@ -67,8 +98,8 @@ class Loader extends Kernel {
 
         call_user_func_array(array(
             new $controllerClass(),
-                $rule->getMethod() . 'Action'
-            ), $rule->getMatches()
+            $rule->getMethod() . 'Action'
+                ), $rule->getMatches()
         );
     }
 
