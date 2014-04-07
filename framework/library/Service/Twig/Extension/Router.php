@@ -3,7 +3,7 @@
 namespace iWorkPHP\Service\Twig\Extension;
 
 use \iWorkPHP\Service\Config\Config;
-use \iWorkPHP\Service\Router\Router as CoreRouter;
+use \iWorkPHP\Service\Router\Router as ServiceRouter;
 
 /**
  * Get absolute url of an router rule
@@ -18,7 +18,7 @@ class Router extends \Twig_Extension {
 
     /**
      *
-     * @var CoreRouter
+     * @var ServiceRouter
      */
     private $router;
 
@@ -26,9 +26,9 @@ class Router extends \Twig_Extension {
      * Constructor
      * 
      * @param Config $config
-     * @param CoreRouter $router
+     * @param ServiceRouter $router
      */
-    public function __construct(Config $config, CoreRouter $router) {
+    public function __construct(Config $config, ServiceRouter $router) {
         $this->config = $config;
         $this->router = $router;
     }
