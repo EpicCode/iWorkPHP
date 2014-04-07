@@ -2,6 +2,8 @@
 
 namespace iWorkPHP\Service\Config;
 
+use \iWorkPHP\Service\Utils\Utils;
+
 /**
  * Framework critical configuration
  */
@@ -9,21 +11,23 @@ class Config {
 
     /**
      *
-     * @var type 
+     * @var Utils
      */
     private $utils = null;
 
     /**
      * Configuration list
      * 
-     * @var array 
+     * @var \stdClass 
      */
     private $config = null;
 
     /**
      * Constructor
+     * 
+     * @param Utils $utils
      */
-    public function __construct(\iWorkPHP\Service\Utils\Utils $utils) {
+    public function __construct(Utils $utils) {
         $this->utils = $utils;
         $this->config = new \stdClass();
 
@@ -31,7 +35,7 @@ class Config {
         $this->addParam('baseDir', dirname(dirname(dirname(dirname(__DIR__)))) . '/');
         $this->addParam('appDir', $this->getParam('baseDir') . 'app/');
         $this->addParam('configDir', $this->getParam('appDir') . 'config/');
-        
+
         $this->loadConfig();
     }
 
@@ -50,7 +54,7 @@ class Config {
      * Add param to configuration list
      * 
      * @param string $name
-     * @param string $param
+     * @param mixed $param
      */
     public function addParam($name, $param) {
         if (!$this->hasParam($name)) {
@@ -70,6 +74,7 @@ class Config {
 
     /**
      * Get a param from configuration list
+     * 
      * @param string $name
      * @return mixed
      */
@@ -80,6 +85,7 @@ class Config {
     }
 
     /**
+     * Set a param from configuration list
      * 
      * @param string $name
      * @param mixed $param
