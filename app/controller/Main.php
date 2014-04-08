@@ -6,9 +6,8 @@ use \iWorkPHP\Core\Controller;
 
 /**
  * Main controller
- *
- * @author EpicJhon
  */
+
 class Main extends Controller {
 
     public function mainAction() {
