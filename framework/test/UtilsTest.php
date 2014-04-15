@@ -1,11 +1,13 @@
 <?php
 
+use \iWorkPHP\Service\Utils\Utils;
+
 class UtilsTest extends PHPUnit_Framework_TestCase {
 
     private $utils;
 
     public function __construct() {
-        $this->utils = new \iWorkPHP\Service\Utils\Utils();
+        $this->utils = new Utils();
     }
 
     public function testArrayToObject() {

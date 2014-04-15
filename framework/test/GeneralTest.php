@@ -1,5 +1,7 @@
 <?php
 
+use iWorkPHP\Service\HttpFoundation\Request;
+
 class GeneralTest extends PHPUnit_Framework_TestCase {
 
     private function indexEmulator() {
@@ -14,7 +16,7 @@ class GeneralTest extends PHPUnit_Framework_TestCase {
     }
 
     private function prepareRequest($path = '') {
-        $request = new \Symfony\Component\HttpFoundation\Request();
+        $request = new Request();
         $ret = $request->create('http://site.com/index.php/' . $path);
         $ret->overrideGlobals();
     }
