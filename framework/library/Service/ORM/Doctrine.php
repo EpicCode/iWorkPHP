@@ -30,9 +30,6 @@ class Doctrine {
      */
     public function __construct(Config $config) {
         $this->config = $config;
-
-        $dbConfig = $this->config->getParam('db');
-        $this->openConnection($dbConfig);
     }
 
     /**
@@ -40,7 +37,9 @@ class Doctrine {
      * 
      * @param stdClass $db
      */
-    private function openConnection($db) {
+    private function openConnection() {
+        $db = $this->config->getParam('db');
+
         $paths = array(
             $this->config->getParam('appDir') . '/database/Metadata'
         );
@@ -72,6 +71,10 @@ class Doctrine {
      * @return EntityManager
      */
     public function getEntityManager() {
+        if ($this->entityManager === null) {
+            $this->openConnection();
+        }
+
         return $this->entityManager;
     }
 
