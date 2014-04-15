@@ -48,6 +48,8 @@ class Doctrine {
 
         $dbParams = array(
             'driver' => $db->driver,
+            'host' => $db->host,
+            'port' => $db->port,
             'user' => $db->user,
             'password' => $db->password,
             'dbname' => $db->dbname
