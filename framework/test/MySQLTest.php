@@ -83,7 +83,7 @@ class MySQLTest extends PHPUnit_Framework_TestCase {
         $config->port = '3306';
         $config->user = 'travis';
         $config->password = '';
-        $config->dbname = 'test';
+        $config->dbname = 'iworkphp_test';
         // Overwrite MySQL configuration
         $this->config->setParam('db', $config);
 
