@@ -5,7 +5,6 @@ namespace iWorkPHP\Service\ORM;
 use \iWorkPHP\Service\Config\Config;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
-use Doctrine\Common\Proxy\AbstractProxyFactory;
 
 /**
  * Doctrine class
@@ -55,17 +54,15 @@ class Doctrine {
             'dbname' => $db->dbname
         );
 
-        // New configuration
-        $config = Setup::createYAMLMetadataConfiguration($paths);
-
         // Set environment mode
         if (!$this->config->getParam('environment')->debug) {
-            $config->setProxyDir($this->config->getParam('frameDir') . 'cache');
-            $config->setAutoGenerateProxyClasses(AbstractProxyFactory::AUTOGENERATE_NEVER);
+            $proxyDir = $this->config->getParam('frameDir') . 'cache';
         } else {
-            $config->setAutoGenerateProxyClasses(AbstractProxyFactory::AUTOGENERATE_ALWAYS);
+            $proxyDir = null;
         }
 
+        // New configuration
+        $config = Setup::createYAMLMetadataConfiguration($paths, $this->config->getParam('environment')->debug, $proxyDir);
         $this->entityManager = EntityManager::create($dbParams, $config);
     }
 
