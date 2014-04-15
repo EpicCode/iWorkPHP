@@ -16,6 +16,9 @@ before_install:
     - composer validate
     # Install dependencies
     - composer install
+    # Create test database
+    - mysql -e 'create database test;'
+    - mysql -u travis -p test < test.sql
 before_script:
     # Go to settings
     - cd ./app/config/
