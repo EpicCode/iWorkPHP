@@ -17,9 +17,9 @@ before_install:
     # Install dependencies
     - composer install
     # Create test database
-    - mysql -u travis -p -e 'create database iworkphp_test;'
+    - mysql -u travis -e 'create database iworkphp_test;'
     # Create test data
-    - mysql -u travis -p iworkphp_test < test.sql
+    - mysql -u travis iworkphp_test < test.sql
 before_script:
     # Go to settings
     - cd ./app/config/
