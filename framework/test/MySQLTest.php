@@ -117,6 +117,12 @@ class MySQLTest extends PHPUnit_Framework_TestCase {
     }
 
     public function checkFiles() {
+        echo $this->config->getParam('appDir'), "\n";
+        echo __DIR__, "\n";
+        echo `ls`;
+        echo `ls ./../`;
+        echo `ls ./../../`;
+        echo `ls ./../../../`;
         $this->assertTrue(file_exists($this->config->getParam('appDir') . 'database/Entity/User.php'));
         $this->assertTrue(file_exists($this->config->getParam('appDir') . 'database/Entity/Info.php'));
 
