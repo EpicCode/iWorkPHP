@@ -19,7 +19,7 @@ before_install:
     # Create test database
     - mysql -u travis -e 'create database iworkphp_test;'
     # Create test data
-    - mysql -u travis iworkphp_test < test.sql
+    - mysql -u travis iworkphp_test < ./framework/test/test.sql
 before_script:
     # Go to settings
     - cd ./config/
