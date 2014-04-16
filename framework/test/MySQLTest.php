@@ -122,17 +122,17 @@ class MySQLTest extends PHPUnit_Framework_TestCase {
         echo $this->config->getParam('appDir'), "\n";
         echo __DIR__, "\n";
         echo shell_exec('ls -lia ' . $this->config->getParam('appDir')), " ==", "\n";
-        echo shell_exec('ls -lia ' . $this->config->getParam('appDir') . '/database/'), " ==", "\n";
-        echo shell_exec('ls -lia ' . $this->config->getParam('appDir') . '/database/Entity/'), " ==", "\n";
-        echo shell_exec('ls -lia ' . $this->config->getParam('appDir') . '/database/Metadata/'), " ==", "\n";
-        echo shell_exec('ls -lia ' . $this->config->getParam('appDir') . '/database/Repository/'), " ==", "\n";
+        echo shell_exec('ls -lia ' . $this->config->getParam('appDir') . 'Database/'), " ==", "\n";
+        echo shell_exec('ls -lia ' . $this->config->getParam('appDir') . 'Database/Entity/'), " ==", "\n";
+        echo shell_exec('ls -lia ' . $this->config->getParam('appDir') . 'Database/Metadata/'), " ==", "\n";
+        echo shell_exec('ls -lia ' . $this->config->getParam('appDir') . 'Database/Repository/'), " ==", "\n";
 
 
-        $this->assertTrue(file_exists($this->config->getParam('appDir') . 'database/Entity/User.php'));
-        $this->assertTrue(file_exists($this->config->getParam('appDir') . 'database/Entity/Info.php'));
+        $this->assertTrue(file_exists($this->config->getParam('appDir') . 'Database/Entity/User.php'));
+        $this->assertTrue(file_exists($this->config->getParam('appDir') . 'Database/Entity/Info.php'));
 
-        echo file_get_contents($this->config->getParam('appDir') . 'database/Entity/User.php');
-        echo file_get_contents($this->config->getParam('appDir') . 'database/Entity/Info.php');
+        echo file_get_contents($this->config->getParam('appDir') . 'Database/Entity/User.php');
+        echo file_get_contents($this->config->getParam('appDir') . 'Database/Entity/Info.php');
     }
 
     public function testMySQL() {
