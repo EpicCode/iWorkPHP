@@ -118,6 +118,14 @@ class MySQLTest extends PHPUnit_Framework_TestCase {
         $this->assertContains('Entity classes generated to', $ret);
     }
 
+    public function testFiles() {
+        $this->assertTrue(file_exists($this->config->getParam('appDir') . 'database/Entity/User.php'));
+        $this->assertTrue(file_exists($this->config->getParam('appDir') . 'database/Entity/Info.php'));
+        
+        echo file_get_contents($this->config->getParam('appDir') . 'database/Entity/User.php');
+        echo file_get_contents($this->config->getParam('appDir') . 'database/Entity/Info.php');
+    }
+
     public function testMySQL() {
 
         $query = $this->em
