@@ -108,11 +108,13 @@ class MySQLTest extends PHPUnit_Framework_TestCase {
 
     public function testMappingDatabase() {
         $ret = $this->auxiliaryConsoleRunner($this->mappingDatabaseCommand);
+        echo $ret;
         $this->assertContains('mapping information to', $ret);
     }
 
     public function testGenerateEntitiesCommand() {
         $ret = $this->auxiliaryConsoleRunner($this->generateEntitiesCommand);
+        echo $ret;
         $this->assertContains('Entity classes generated to', $ret);
     }
 
