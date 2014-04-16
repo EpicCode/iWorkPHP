@@ -121,6 +121,7 @@ class MySQLTest extends PHPUnit_Framework_TestCase {
     public function checkFiles() {
         echo $this->config->getParam('appDir'), "\n";
         echo __DIR__, "\n";
+        echo shell_exec('ls -lia ' . $this->config->getParam('appDir')), " ==", "\n";
         echo shell_exec('ls -lia ' . $this->config->getParam('appDir') . '/database/'), " ==", "\n";
         echo shell_exec('ls -lia ' . $this->config->getParam('appDir') . '/database/Entity/'), " ==", "\n";
         echo shell_exec('ls -lia ' . $this->config->getParam('appDir') . '/database/Metadata/'), " ==", "\n";
