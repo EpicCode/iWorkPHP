@@ -120,6 +120,9 @@ class MySQLTest extends PHPUnit_Framework_TestCase {
         echo $this->config->getParam('appDir'), "\n";
         echo __DIR__, "\n";
         echo shell_exec('ls -lia ' . $this->config->getParam('appDir') . '/database/'), " ==", "\n";
+        echo shell_exec('ls -lia ' . $this->config->getParam('appDir') . '/database/Entity/'), " ==", "\n";
+        echo shell_exec('ls -lia ' . $this->config->getParam('appDir') . '/database/Metadata/'), " ==", "\n";
+        echo shell_exec('ls -lia ' . $this->config->getParam('appDir') . '/database/Repository/'), " ==", "\n";
         $this->assertTrue(file_exists($this->config->getParam('appDir') . 'database/Entity/User.php'));
         $this->assertTrue(file_exists($this->config->getParam('appDir') . 'database/Entity/Info.php'));
 
