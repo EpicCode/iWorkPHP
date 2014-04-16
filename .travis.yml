@@ -26,7 +26,7 @@ before_script:
     # Create configuration file
     - cp configuration.sample.yml configuration.yml
     # Change the debug mode
-    - sed 's/false/true/g' configuration.yml
+    - sed -i 's/false/true/g' configuration.yml
     # Root directory
     - cd ../
 script:
