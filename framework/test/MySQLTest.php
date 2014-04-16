@@ -123,6 +123,7 @@ class MySQLTest extends PHPUnit_Framework_TestCase {
         echo shell_exec('ls -lia ' . $this->config->getParam('appDir') . '/database/Entity/'), " ==", "\n";
         echo shell_exec('ls -lia ' . $this->config->getParam('appDir') . '/database/Metadata/'), " ==", "\n";
         echo shell_exec('ls -lia ' . $this->config->getParam('appDir') . '/database/Repository/'), " ==", "\n";
+        
 
         //$this->assertTrue(file_exists($this->config->getParam('appDir') . 'database/Entity/User.php'));
         //$this->assertTrue(file_exists($this->config->getParam('appDir') . 'database/Entity/Info.php'));
@@ -138,7 +139,7 @@ class MySQLTest extends PHPUnit_Framework_TestCase {
 
         $this->mappingDatabase();
         $this->generateEntities();
-        $this->checkFiles();
+        //$this->checkFiles();
 
         $query = $this->em
                 ->getRepository('Database\Entity\Info')
