@@ -106,27 +106,29 @@ class MySQLTest extends PHPUnit_Framework_TestCase {
         return ConsoleRunnerTest::runTest($helperSet, $command);
     }
 
-    public function testMappingDatabase() {
+    public function mappingDatabase() {
         $ret = $this->auxiliaryConsoleRunner($this->mappingDatabaseCommand);
-        echo $ret;
         $this->assertContains('mapping information to', $ret);
     }
 
-    public function testGenerateEntitiesCommand() {
+    public function generateEntities() {
         $ret = $this->auxiliaryConsoleRunner($this->generateEntitiesCommand);
-        echo $ret;
         $this->assertContains('Entity classes generated to', $ret);
     }
 
-    public function testFiles() {
+    public function checkFiles() {
         $this->assertTrue(file_exists($this->config->getParam('appDir') . 'database/Entity/User.php'));
         $this->assertTrue(file_exists($this->config->getParam('appDir') . 'database/Entity/Info.php'));
-        
+
         echo file_get_contents($this->config->getParam('appDir') . 'database/Entity/User.php');
         echo file_get_contents($this->config->getParam('appDir') . 'database/Entity/Info.php');
     }
 
     public function testMySQL() {
+
+        $this->mappingDatabase();
+        $this->generateEntities();
+        $this->checkFiles();
 
         $query = $this->em
                 ->getRepository('Database\Entity\Info')
