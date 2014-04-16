@@ -1,4 +1,4 @@
 nbproject/
 vendor/
 /composer.lock
-/app/config/configuration.yml
+/config/configuration.yml
