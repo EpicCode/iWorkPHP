@@ -37,7 +37,7 @@ class Twig extends \Twig_Environment {
         $this->config = $config;
         $this->router = $router;
 
-        $loader = new \Twig_Loader_Filesystem($this->config->getParam('appDir') . 'view');
+        $loader = new \Twig_Loader_Filesystem($this->config->getParam('appDir') . 'View');
 
         /* For developers */
         if ($this->config->getParam('environment')->debug) {

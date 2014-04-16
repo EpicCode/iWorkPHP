@@ -38,7 +38,7 @@ class DependencyInjector {
      * @param ContainerBuilder $builder
      */
     private function loadContainer($builder) {
-        $path = $this->config->getParam('appDir') . 'config/di/';
+        $path = $this->config->getParam('configDir') . 'di/';
 
         if (is_dir($path)) {
             if (($handle = opendir($path))) {

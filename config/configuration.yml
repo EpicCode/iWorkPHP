@@ -1,0 +1,21 @@
+## Project Config
+---
+# Environment type
+environment:
+    debug: true
+# Databases Config
+db:
+    driver: pdo_mysql
+    host: localhostg
+    port: 3306
+    user: iworkphp
+    password: iworkphp
+    dbname: iworkphp
+# Site config
+site:
+    # remove the "/" at the end
+    url: "http://localhost/iWorkPHPGit/iWorkPHP/www"
+## Advanced
+twig:
+    ext:
+        - Sample

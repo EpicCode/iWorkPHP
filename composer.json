@@ -6,9 +6,9 @@
 	"autoload": {
 		"psr-4": {
 			"iWorkPHP\\" : "framework/library/",
-			"Controller\\" : "app/controller/",
-			"Model\\" : "app/model/",
-			"Database\\" : "app/database/"
+			"Controller\\" : "app/Controller/",
+			"Model\\" : "app/Model/",
+			"Database\\" : "app/Database/"
 		}
 	},
     "require": {
