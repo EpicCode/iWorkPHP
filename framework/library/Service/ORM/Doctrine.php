@@ -40,7 +40,7 @@ class Doctrine {
         $db = $this->config->getParam('db');
 
         $paths = array(
-            $this->config->getParam('appDir') . '/Database/Metadata'
+            $this->config->getParam('databaseDir') . '/Metadata/'
         );
 
         $dbParams = array(
@@ -54,7 +54,7 @@ class Doctrine {
 
         // Set environment mode
         if (!$this->config->getParam('environment')->debug) {
-            $proxyDir = $this->config->getParam('frameDir') . 'cache';
+            $proxyDir = $this->config->getParam('cacheDir');
         } else {
             $proxyDir = null;
         }

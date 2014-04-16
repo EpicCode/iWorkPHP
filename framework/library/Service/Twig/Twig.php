@@ -42,7 +42,7 @@ class Twig extends \Twig_Environment {
         /* For developers */
         if ($this->config->getParam('environment')->debug) {
             parent::__construct($loader, array(
-                'cache' => $this->config->getParam('frameDir') . 'cache',
+                'cache' => $this->config->getParam('cacheDir'),
                 'debug' => true
             ));
 
@@ -50,7 +50,7 @@ class Twig extends \Twig_Environment {
             parent::setCache(false);
         } else {
             parent::__construct($loader, array(
-                'cache' => $this->config->getParam('frameDir') . 'cache'
+                'cache' => $this->config->getParam('cacheDir')
             ));
         }
 

@@ -27,7 +27,7 @@ class MappingDatabaseCommand extends BasicCommand {
             '--from-database' => true,
             '--namespace' => 'Database\Entity\\',
             'to-type' => 'yml',
-            'dest-path' => $this->config->getParam('appDir') . 'database/Metadata/'
+            'dest-path' => $this->config->getParam('databaseDir') . 'Metadata/'
         );
 
         $this->invokeCommand('orm:convert:mapping', $arguments, $output);
