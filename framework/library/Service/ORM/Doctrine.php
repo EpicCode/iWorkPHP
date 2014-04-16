@@ -35,13 +35,12 @@ class Doctrine {
     /**
      * Open database connection
      * 
-     * @param stdClass $db
      */
     private function openConnection() {
         $db = $this->config->getParam('db');
 
         $paths = array(
-            $this->config->getParam('appDir') . '/database/Metadata'
+            $this->config->getParam('appDir') . '/Database/Metadata'
         );
 
         $dbParams = array(
