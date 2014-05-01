@@ -1,0 +1,21 @@
+## Project Config
+---
+# Environment type
+environment:
+    debug: false
+# Databases Config
+db:
+    driver: pdo_mysql
+    host: localhost
+    port: 3306
+    user: username
+    password: password
+    dbname: database
+# Site config
+site:
+    # remove the "/" at the end
+    url: "http://site.com"
+## Advanced
+twig:
+    ext:
+        - Sample
