@@ -22,7 +22,7 @@ before_install:
     - mysql -u travis iworkphp_test < ./framework/test/test.sql
 before_script:
     # Go to settings
-    - cd ./config/
+    - cd ./app/Config/
     # Create configuration file
     - cp configuration.sample.yml configuration.yml
     # Change the debug mode
