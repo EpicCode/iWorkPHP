@@ -28,7 +28,7 @@ before_script:
     # Change the debug mode
     - sed -i 's/false/true/g' configuration.yml
     # Root directory
-    - cd ../
+    - cd ../../
 script:
     # Running Tests
     - php phpunit.phar --coverage-clover=coverage.clover --colors  --bootstrap "./vendor/autoload.php" ./framework/test/
