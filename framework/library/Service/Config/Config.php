@@ -34,7 +34,7 @@ class Config {
         $this->addParam('frameDir', dirname(dirname(dirname(__DIR__))) . '/');
         $this->addParam('baseDir', dirname(dirname(dirname(dirname(__DIR__)))) . '/');
         $this->addParam('appDir', $this->getParam('baseDir') . 'app/');
-        $this->addParam('configDir', $this->getParam('appDir') . 'config/');
+        $this->addParam('configDir', $this->getParam('appDir') . 'Config/');
         $this->addParam('cacheDir', $this->getParam('frameDir') . 'cache/');
         $this->addParam('databaseDir', $this->getParam('appDir') . 'Database/');
 
